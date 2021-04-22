@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CapabilityStatement
+    xmlns="http://hl7.org/fhir">
+    <id value="specific-service-request-server"/>
+    <meta>
+        <versionId value="4"/>
+        <lastUpdated value="2021-04-21T04:04:20.244+00:00"/>
+        <source value="#087IA2vQzQW4uesL"/>
+    </meta>
+    <url value="http://xxx/specific-service-request-server"/>
+    <version value="0.0.1"/>
+    <name value="SpecificServiceRequestServer"/>
+    <title value="Specific Service Request Server"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2021-02-01"/>
+    <description value="特定保健指導情報サーバ機能の機能ステートメントです。  &#xA;使用できるリソース(Resource Type)と使用できる操作(Read	Search:検索参照,	Update:更新,	Create:作成,	Delete:削除)の関係を示します。  &#xA;表で&quot;y&quot;となっている操作が使用できます。空欄となっている操作は使用できません。"/>
+    <kind value="requirements"/>
+    <fhirVersion value="4.0.1"/>
+    <format value="json"/>
+    <format value="xml"/>
+    <rest>
+        <mode value="server"/>
+        <documentation value="特定保健指導情報のエンドポイントです。"/>
+        <resource>
+            <type value="Patient"/>
+            <profile value="https://xxx/StructureDefinition/JP-SPECIFIC-HEALTH-Patient"/>
+            <interaction>
+                <code value="read"/>
+            </interaction>
+            <interaction>
+                <code value="create"/>
+            </interaction>
+            <interaction>
+                <code value="update"/>
+            </interaction>
+            <interaction>
+                <code value="delete"/>
+            </interaction>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
+        </resource>
+        <resource>
+            <type value="Organization"/>
+            <profile value="https://xxx/StructureDefinition/JP-SPECIFIC-HEALTH-Organization"/>
+            <interaction>
+                <code value="read"/>
+            </interaction>
+            <interaction>
+                <code value="create"/>
+            </interaction>
+            <interaction>
+                <code value="update"/>
+            </interaction>
+            <interaction>
+                <code value="delete"/>
+            </interaction>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
+        </resource>
+        <resource>
+            <type value="Observation"/>
+            <profile value="https://xxx/StructureDefinition/JP-SPECIFIC-HEALTH-Observation"/>
+            <interaction>
+                <code value="read"/>
+            </interaction>
+            <interaction>
+                <code value="create"/>
+            </interaction>
+            <interaction>
+                <code value="update"/>
+            </interaction>
+            <interaction>
+                <code value="delete"/>
+            </interaction>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
+        </resource>
+        <resource>
+            <type value="QuestionnaireResponse"/>
+            <profile value="https://xxx/StructureDefinition/JP-SPECIFIC-HEALTH-QuestionnaireResponse"/>
+            <interaction>
+                <code value="read"/>
+            </interaction>
+            <interaction>
+                <code value="create"/>
+            </interaction>
+            <interaction>
+                <code value="update"/>
+            </interaction>
+            <interaction>
+                <code value="delete"/>
+            </interaction>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
+        </resource>
+        <resource>
+            <type value="ServiceRequest"/>
+            <profile value="https://xxx/StructureDefinition/JP-SPECIFIC-HEALTH-ServiceRequest"/>
+            <interaction>
+                <code value="read"/>
+            </interaction>
+            <interaction>
+                <code value="create"/>
+            </interaction>
+            <interaction>
+                <code value="update"/>
+            </interaction>
+            <interaction>
+                <code value="delete"/>
+            </interaction>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
+        </resource>
+        <interaction>
+            <code value="search-system"/>
+        </interaction>
+    </rest>
+</CapabilityStatement>
