@@ -1342,6 +1342,11 @@
                     <generation value="markdown"/>
                 </page>
             </page>
+            <page>
+                <nameUrl value="downloads.html"/>
+                <title value="ダウンロード"/>
+                <generation value="markdown"/>
+            </page>
         </page>
         <parameter>
             <code value="copyrightyear"/>
