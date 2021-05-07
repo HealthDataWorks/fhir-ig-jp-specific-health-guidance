@@ -3,9 +3,9 @@
     xmlns="http://hl7.org/fhir">
     <id value="specific-service-request-server"/>
     <meta>
-        <versionId value="4"/>
-        <lastUpdated value="2021-04-21T04:04:20.244+00:00"/>
-        <source value="#087IA2vQzQW4uesL"/>
+        <versionId value="6"/>
+        <lastUpdated value="2021-05-06T23:03:27.952+00:00"/>
+        <source value="#RRanVAaN1p3ux27Q"/>
     </meta>
     <url value="http://xxx/specific-service-request-server"/>
     <version value="0.0.1"/>
@@ -24,7 +24,7 @@
         <documentation value="特定保健指導情報のエンドポイントです。"/>
         <resource>
             <type value="Patient"/>
-            <profile value="https://xxx/StructureDefinition/JP-SPECIFIC-HEALTH-Patient"/>
+            <profile value="https://igs.healthdataworks.net/jp-specific-health-guidance/StructureDefinition-JP-REZEPT-Patient.html"/>
             <interaction>
                 <code value="read"/>
             </interaction>
@@ -43,7 +43,7 @@
         </resource>
         <resource>
             <type value="Organization"/>
-            <profile value="https://xxx/StructureDefinition/JP-SPECIFIC-HEALTH-Organization"/>
+            <profile value="https://igs.healthdataworks.net/jp-specific-health-guidance/StructureDefinition-JP-REZEPT-Organization.html"/>
             <interaction>
                 <code value="read"/>
             </interaction>
@@ -62,7 +62,7 @@
         </resource>
         <resource>
             <type value="Observation"/>
-            <profile value="https://xxx/StructureDefinition/JP-SPECIFIC-HEALTH-Observation"/>
+            <profile value="https://igs.healthdataworks.net/jp-specific-health-guidance/StructureDefinition-JP-SPECIFIC-HEALTH-Observation.html"/>
             <interaction>
                 <code value="read"/>
             </interaction>
@@ -81,7 +81,7 @@
         </resource>
         <resource>
             <type value="QuestionnaireResponse"/>
-            <profile value="https://xxx/StructureDefinition/JP-SPECIFIC-HEALTH-QuestionnaireResponse"/>
+            <profile value="https://igs.healthdataworks.net/jp-specific-health-guidance/StructureDefinition-JP-SPECIFIC-HEALTH-QuestionnaireResponse.html"/>
             <interaction>
                 <code value="read"/>
             </interaction>
@@ -100,7 +100,7 @@
         </resource>
         <resource>
             <type value="ServiceRequest"/>
-            <profile value="https://xxx/StructureDefinition/JP-SPECIFIC-HEALTH-ServiceRequest"/>
+            <profile value="https://igs.healthdataworks.net/jp-specific-health-guidance/StructureDefinition-JP-SPECIFIC-HEALTH-ServiceRequest.html"/>
             <interaction>
                 <code value="read"/>
             </interaction>
