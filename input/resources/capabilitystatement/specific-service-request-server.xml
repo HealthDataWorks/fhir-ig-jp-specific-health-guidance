@@ -3,11 +3,11 @@
     xmlns="http://hl7.org/fhir">
     <id value="specific-service-request-server"/>
     <meta>
-        <versionId value="6"/>
-        <lastUpdated value="2021-05-06T23:03:27.952+00:00"/>
-        <source value="#RRanVAaN1p3ux27Q"/>
+        <versionId value="7"/>
+        <lastUpdated value="2021-05-11T08:18:34.769+00:00"/>
+        <source value="#PeRw6lvL7RQZQebd"/>
     </meta>
-    <url value="http://xxx/specific-service-request-server"/>
+    <url value="https://igs.healthdataworks.net/jp-specific-health-guidance/capability-statement/specific-service-request-server"/>
     <version value="0.0.1"/>
     <name value="SpecificServiceRequestServer"/>
     <title value="Specific Service Request Server"/>
