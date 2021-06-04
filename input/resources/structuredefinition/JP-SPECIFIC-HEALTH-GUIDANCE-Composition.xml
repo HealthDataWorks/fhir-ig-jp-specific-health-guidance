@@ -1,0 +1,1212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="JP-SPECIFIC-HEALTH-GUIDANCE-Composition"/>
+    <meta>
+        <versionId value="2"/>
+        <lastUpdated value="2021-06-02T06:49:35.695+00:00"/>
+        <source value="#oYPnCg6Yz84zF3dt"/>
+    </meta>
+    <url value="https://igs.healthdataworks.net/specific-health-checkups/StructureDefinition-JP-SPECIFIC-HEALTH-GUIDANCE-Composition.html"/>
+    <name value="Composition"/>
+    <title value="保健指導結果の文書構成情報"/>
+    <status value="draft"/>
+    <description value="保健指導結果の文書構成情報です。"/>
+    <fhirVersion value="4.0.1"/>
+    <mapping>
+        <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
+        <uri value="https://www.mhlw.go.jp/content/12400000/000617344.pdf"/>
+        <name value="特定保健指導"/>
+        <comment value="特定保健指導の電子的なデータ標準様式の特定保健指導情報ファイル仕様説明書をFHIRにマッピングします。"/>
+    </mapping>
+    <kind value="resource"/>
+    <abstract value="false"/>
+    <type value="Composition"/>
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Composition">
+            <path value="Composition"/>
+            <short value="保健指導結果の文書構成情報"/>
+            <definition value="保健指導結果の文書構成情報です。"/>
+        </element>
+        <element id="Composition.id">
+            <path value="Composition.id"/>
+            <short value="このリソースのID"/>
+            <definition value="このリソースのIDです。"/>
+            <comment value="リソースIDは自動採番されます。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.language">
+            <path value="Composition.language"/>
+            <short value="文書の言語"/>
+            <definition value="文書の言語です。"/>
+            <fixedCode value="ja"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.text">
+            <path value="Composition.text"/>
+            <short value="このリソースの概要"/>
+            <definition value="このリソースの概要です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.text.status">
+            <path value="Composition.text.status"/>
+            <definition value="このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。"/>
+            <fixedCode value="generated"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.text.div">
+            <path value="Composition.text.div"/>
+            <short value="このリソースの概要"/>
+            <definition value="このリソースの概要です。"/>
+        </element>
+        <element id="Composition.extension">
+            <path value="Composition.extension"/>
+            <short value="保健指導結果報告書の⽂書バージョンを表す拡張"/>
+            <definition value="保健指導結果報告書の⽂書バージョンを表す拡張です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.extension.url">
+            <path value="Composition.extension.url"/>
+            <short value="保健指導結果報告書の⽂書バージョンを表す拡張のURI"/>
+            <definition value="保健指導結果報告書の⽂書バージョンを表す拡張のURIです。"/>
+            <fixedUri value="http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-versionNumber"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.extension.value[x]">
+            <path value="Composition.extension.value[x]"/>
+            <short value="⽂書のバージョン番号"/>
+            <definition value="⽂書のバージョン番号です。"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.identifier">
+            <path value="Composition.identifier"/>
+            <short value="保健指導結果報告書ID"/>
+            <definition value="保健指導結果報告書IDです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.identifier.system">
+            <path value="Composition.identifier.system"/>
+            <short value="保健指導結果報告書IDの名前空間を表すURI"/>
+            <definition value="保健指導結果報告書IDの名前空間を表すURIです。"/>
+            <fixedUri value="http://jpfhir.jp/fhir/eGuidance/documentIdentifier"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.identifier.value">
+            <path value="Composition.identifier.value"/>
+            <short value="保健指導結果報告書ID"/>
+            <definition value="保健指導結果報告書IDです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.status">
+            <path value="Composition.status"/>
+            <short value="このリソースの状態"/>
+            <definition value="このリソースの状態です。"/>
+            <fixedCode value="final"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.type">
+            <path value="Composition.type"/>
+            <short value="文書区分"/>
+            <definition value="文書区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.type.coding">
+            <path value="Composition.type.coding"/>
+            <short value="文書区分"/>
+            <definition value="文書区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.type.coding.system">
+            <path value="Composition.type.coding.system"/>
+            <short value="文書区分のURI"/>
+            <definition value="文書区分のURIです。"/>
+            <fixedUri value="http://jpfhir.jp/fhir/eGuidance/CodeSystem/documentType"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.type.coding.code">
+            <path value="Composition.type.coding.code"/>
+            <short value="⽂書区分コード"/>
+            <definition value="⽂書区分コードです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.type.coding.display">
+            <path value="Composition.type.coding.display"/>
+            <short value="⽂書区分コードの名称"/>
+            <definition value="⽂書区分コードの名称です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.category">
+            <path value="Composition.category"/>
+            <short value="報告区分"/>
+            <definition value="報告区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.category.coding">
+            <path value="Composition.category.coding"/>
+            <short value="報告区分"/>
+            <definition value="報告区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.category.coding.system">
+            <path value="Composition.category.coding.system"/>
+            <short value="報告区分のURI"/>
+            <definition value="報告区分のURIです。"/>
+            <fixedUri value="urn:oid:1.2.392.200119.6.1001"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.category.coding.code">
+            <path value="Composition.category.coding.code"/>
+            <short value="報告区分コード"/>
+            <definition value="報告区分コードです。"/>
+            <comment value="特定保健指導は「21」を定義する。"/>
+            <fixedCode value="21"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.category.coding.display">
+            <path value="Composition.category.coding.display"/>
+            <short value="報告区分コード"/>
+            <definition value="報告区分コードです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.subject">
+            <path value="Composition.subject"/>
+            <short value="受診者情報の参照"/>
+            <definition value="受診者情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.subject.reference">
+            <path value="Composition.subject.reference"/>
+            <short value="受診者情報の参照"/>
+            <definition value="受診者情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.encounter">
+            <path value="Composition.encounter"/>
+            <short value="保健指導実施情報の参照"/>
+            <definition value="保健指導実施情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.encounter.reference">
+            <path value="Composition.encounter.reference"/>
+            <short value="保健指導実施情報の参照"/>
+            <definition value="保健指導実施情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.date">
+            <path value="Composition.date"/>
+            <short value="保健指導結果報告書の作成日時"/>
+            <definition value="保健指導結果報告書の作成日時です。"/>
+            <mustSupport value="true"/>
+            <mapping>
+                <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
+                <map value="XML No: 4.1 XPath: /ClinicalDocument/effectiveTime/@value"/>
+            </mapping>
+        </element>
+        <element id="Composition.author">
+            <path value="Composition.author"/>
+            <short value="保健指導結果作成者役割情報の参照"/>
+            <definition value="保健指導結果作成者役割情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.author.reference">
+            <path value="Composition.author.reference"/>
+            <short value="保健指導結果作成者役割情報の参照"/>
+            <definition value="保健指導結果作成者役割情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.title">
+            <path value="Composition.title"/>
+            <short value="この文書(リソース)のタイトル"/>
+            <definition value="この文書(リソース)のタイトルです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.confidentiality">
+            <path value="Composition.confidentiality"/>
+            <short value="本個⼈提供⽤保健指導結果報告書アクセス基準"/>
+            <definition value="本個⼈提供⽤保健指導結果報告書アクセス基準の「N」(Normal)を定義する。"/>
+            <fixedCode value="N"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.custodian">
+            <path value="Composition.custodian"/>
+            <short value="保健指導結果作成組織情報の参照"/>
+            <definition value="保健指導結果作成組織情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.custodian.reference">
+            <path value="Composition.custodian.reference"/>
+            <short value="保健指導結果作成組織情報の参照"/>
+            <definition value="保健指導結果作成組織情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.event">
+            <path value="Composition.event"/>
+            <short value="保健指導実施情報"/>
+            <definition value="保健指導実施情報です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.event.code">
+            <path value="Composition.event.code"/>
+            <short value="保健指導プログラムサービスコード"/>
+            <definition value="保健指導プログラムサービスコードです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.event.code.coding">
+            <path value="Composition.event.code.coding"/>
+            <short value="保健指導プログラムサービスコード"/>
+            <definition value="保健指導プログラムサービスコードです。"/>
+        </element>
+        <element id="Composition.event.code.coding.system">
+            <path value="Composition.event.code.coding.system"/>
+            <short value="保健指導プログラムサービスコードのURI"/>
+            <definition value="保健指導プログラムサービスコードのURIです。"/>
+            <fixedUri value="urn:oid:2.16.840.1.113883.2.2.1.6.1002"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.event.code.coding.code">
+            <path value="Composition.event.code.coding.code"/>
+            <short value="保健指導プログラムサービスコード"/>
+            <definition value="保健指導プログラムサービスコードです。"/>
+            <comment value="「特定保健指導」を示す「100」を定義する。"/>
+            <fixedCode value="100"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.event.code.coding.display">
+            <path value="Composition.event.code.coding.display"/>
+            <short value="保健指導プログラムサービスコードの名称"/>
+            <definition value="保健指導プログラムサービスコードの名称です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.event.period">
+            <path value="Composition.event.period"/>
+            <short value="保健指導実施⽇"/>
+            <definition value="保健指導実施⽇です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.event.period.start">
+            <path value="Composition.event.period.start"/>
+            <short value="保健指導実施⽇"/>
+            <definition value="保健指導実施⽇です。"/>
+            <mustSupport value="true"/>
+            <mapping>
+                <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
+                <map value="XML No: 10.3.1 XPath: /ClinicalDocument/documentationOf/serviceEvent/effectiveTime/@value"/>
+            </mapping>
+        </element>
+        <element id="Composition.event.period.end">
+            <path value="Composition.event.period.end"/>
+            <short value="保健指導実施⽇"/>
+            <definition value="保健指導実施⽇です。"/>
+            <comment value="保健指導が1日で終わる場合は「start」と同じ日付を定義する。"/>
+            <mustSupport value="true"/>
+            <mapping>
+                <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
+                <map value="XML No: 10.3.1 XPath: /ClinicalDocument/documentationOf/serviceEvent/effectiveTime/@value"/>
+            </mapping>
+        </element>
+        <element id="Composition.event.detail">
+            <path value="Composition.event.detail"/>
+            <short value="保健指導実施情報の参照"/>
+            <definition value="保健指導実施情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.event.detail.reference">
+            <path value="Composition.event.detail.reference"/>
+            <short value="保健指導実施情報の参照"/>
+            <definition value="保健指導実施情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section">
+            <path value="Composition.section"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="code"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <mustSupport value="false"/>
+        </element>
+        <element id="Composition.section:90010">
+            <path value="Composition.section"/>
+            <sliceName value="90010"/>
+            <short value="指導共通情報セクション"/>
+            <definition value="指導共通情報セクションです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90010.title">
+            <path value="Composition.section.title"/>
+            <short value="セクションのタイトル"/>
+            <definition value="セクションのタイトルです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90010.code">
+            <path value="Composition.section.code"/>
+            <short value="セクション区分"/>
+            <definition value="セクション区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90010.code.coding">
+            <path value="Composition.section.code.coding"/>
+            <short value="セクション区分"/>
+            <definition value="セクション区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90010.code.coding.system">
+            <path value="Composition.section.code.coding.system"/>
+            <short value="セクション区分コードのURI"/>
+            <definition value="セクション区分コードのURI"/>
+            <fixedUri value="urn:oid:1.2.392.200119.6.1010"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90010.code.coding.code">
+            <path value="Composition.section.code.coding.code"/>
+            <short value="セクション区分コード"/>
+            <definition value="セクション区分コードです。"/>
+            <comment value="指導共通情報セクションを示す「90010」を定義する。"/>
+            <fixedCode value="90010"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90010.code.coding.display">
+            <path value="Composition.section.code.coding.display"/>
+            <short value="セクション区分コードの名称"/>
+            <definition value="セクション区分コードの名称です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90010.text">
+            <path value="Composition.section.text"/>
+            <short value="セクションの内容を示すテキスト"/>
+            <definition value="セクションの内容を示すテキストです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90010.text.status">
+            <path value="Composition.section.text.status"/>
+            <definition value="このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。"/>
+            <fixedCode value="generated"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90010.text.div">
+            <path value="Composition.section.text.div"/>
+            <short value="このリソースの概要"/>
+            <definition value="このリソースの概要です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90010.entry">
+            <path value="Composition.section.entry"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="reference"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Composition.section:90010.entry:Observation">
+            <path value="Composition.section.entry"/>
+            <sliceName value="Observation"/>
+            <short value="健診項⽬情報の参照"/>
+            <definition value="健診項⽬情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90010.entry:Observation.reference">
+            <path value="Composition.section.entry.reference"/>
+            <short value="健診項⽬情報の参照"/>
+            <definition value="健診項⽬情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90010.entry:Coverage">
+            <path value="Composition.section.entry"/>
+            <sliceName value="Coverage"/>
+            <short value="保険証情報と受診券情報の参照"/>
+            <definition value="保険証情報と受診券情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90010.entry:Coverage.reference">
+            <path value="Composition.section.entry.reference"/>
+            <short value="保険証情報と受診券情報の参照"/>
+            <definition value="保険証情報と受診券情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90020">
+            <path value="Composition.section"/>
+            <sliceName value="90020"/>
+            <short value="指導初回①情報セクション"/>
+            <definition value="指導初回①情報セクションです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90020.title">
+            <path value="Composition.section.title"/>
+            <short value="セクションのタイトル"/>
+            <definition value="セクションのタイトルです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90020.code">
+            <path value="Composition.section.code"/>
+            <short value="セクション区分"/>
+            <definition value="セクション区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90020.code.coding">
+            <path value="Composition.section.code.coding"/>
+            <short value="セクション区分"/>
+            <definition value="セクション区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90020.code.coding.system">
+            <path value="Composition.section.code.coding.system"/>
+            <short value="セクション区分コードのURI"/>
+            <definition value="セクション区分コードのURI"/>
+            <fixedUri value="urn:oid:1.2.392.200119.6.1010"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90020.code.coding.code">
+            <path value="Composition.section.code.coding.code"/>
+            <short value="セクション区分コード"/>
+            <definition value="セクション区分コードです。"/>
+            <comment value="指導初回①情報セクションを示す「90020」を定義する。"/>
+            <fixedCode value="90020"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90020.code.coding.display">
+            <path value="Composition.section.code.coding.display"/>
+            <short value="セクション区分コードの名称"/>
+            <definition value="セクション区分コードの名称です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90020.text">
+            <path value="Composition.section.text"/>
+            <short value="セクションの内容を示すテキスト"/>
+            <definition value="セクションの内容を示すテキストです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90020.text.status">
+            <path value="Composition.section.text.status"/>
+            <definition value="このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。"/>
+            <fixedCode value="generated"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90020.text.div">
+            <path value="Composition.section.text.div"/>
+            <short value="このリソースの概要"/>
+            <definition value="このリソースの概要です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90020.entry">
+            <path value="Composition.section.entry"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="reference"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Composition.section:90020.entry:Observation">
+            <path value="Composition.section.entry"/>
+            <sliceName value="Observation"/>
+            <short value="健診項⽬情報の参照"/>
+            <definition value="健診項⽬情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90020.entry:Observation.reference">
+            <path value="Composition.section.entry.reference"/>
+            <short value="健診項⽬情報の参照"/>
+            <definition value="健診項⽬情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90020.entry:Coverage">
+            <path value="Composition.section.entry"/>
+            <sliceName value="Coverage"/>
+            <short value="保険証情報と受診券情報の参照"/>
+            <definition value="保険証情報と受診券情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90020.entry:Coverage.reference">
+            <path value="Composition.section.entry.reference"/>
+            <short value="保険証情報と受診券情報の参照"/>
+            <definition value="保険証情報と受診券情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90030">
+            <path value="Composition.section"/>
+            <sliceName value="90030"/>
+            <short value="指導初回情報セクション"/>
+            <definition value="指導初回情報セクションです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90030.title">
+            <path value="Composition.section.title"/>
+            <short value="セクションのタイトル"/>
+            <definition value="セクションのタイトルです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90030.code">
+            <path value="Composition.section.code"/>
+            <short value="セクション区分"/>
+            <definition value="セクション区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90030.code.coding">
+            <path value="Composition.section.code.coding"/>
+            <short value="セクション区分"/>
+            <definition value="セクション区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90030.code.coding.system">
+            <path value="Composition.section.code.coding.system"/>
+            <short value="セクション区分コードのURI"/>
+            <definition value="セクション区分コードのURI"/>
+            <fixedUri value="urn:oid:1.2.392.200119.6.1010"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90030.code.coding.code">
+            <path value="Composition.section.code.coding.code"/>
+            <short value="セクション区分コード"/>
+            <definition value="セクション区分コードです。"/>
+            <comment value="指導初回情報セクションを示す「90030」を定義する。"/>
+            <fixedCode value="90030"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90030.code.coding.display">
+            <path value="Composition.section.code.coding.display"/>
+            <short value="セクション区分コードの名称"/>
+            <definition value="セクション区分コードの名称です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90030.text">
+            <path value="Composition.section.text"/>
+            <short value="セクションの内容を示すテキスト"/>
+            <definition value="セクションの内容を示すテキストです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90030.text.status">
+            <path value="Composition.section.text.status"/>
+            <definition value="このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。"/>
+            <fixedCode value="generated"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90030.text.div">
+            <path value="Composition.section.text.div"/>
+            <short value="このリソースの概要"/>
+            <definition value="このリソースの概要です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90030.entry">
+            <path value="Composition.section.entry"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="reference"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Composition.section:90030.entry:Observation">
+            <path value="Composition.section.entry"/>
+            <sliceName value="Observation"/>
+            <short value="健診項⽬情報の参照"/>
+            <definition value="健診項⽬情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90030.entry:Observation.reference">
+            <path value="Composition.section.entry.reference"/>
+            <short value="健診項⽬情報の参照"/>
+            <definition value="健診項⽬情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90030.entry:Coverage">
+            <path value="Composition.section.entry"/>
+            <sliceName value="Coverage"/>
+            <short value="保険証情報と受診券情報の参照"/>
+            <definition value="保険証情報と受診券情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90030.entry:Coverage.reference">
+            <path value="Composition.section.entry.reference"/>
+            <short value="保険証情報と受診券情報の参照"/>
+            <definition value="保険証情報と受診券情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90040">
+            <path value="Composition.section"/>
+            <sliceName value="90040"/>
+            <short value="継続支援情報セクション"/>
+            <definition value="継続支援情報セクションです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90040.title">
+            <path value="Composition.section.title"/>
+            <short value="セクションのタイトル"/>
+            <definition value="セクションのタイトルです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90040.code">
+            <path value="Composition.section.code"/>
+            <short value="セクション区分"/>
+            <definition value="セクション区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90040.code.coding">
+            <path value="Composition.section.code.coding"/>
+            <short value="セクション区分"/>
+            <definition value="セクション区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90040.code.coding.system">
+            <path value="Composition.section.code.coding.system"/>
+            <short value="セクション区分コードのURI"/>
+            <definition value="セクション区分コードのURI"/>
+            <fixedUri value="urn:oid:1.2.392.200119.6.1010"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90040.code.coding.code">
+            <path value="Composition.section.code.coding.code"/>
+            <short value="セクション区分コード"/>
+            <definition value="セクション区分コードです。"/>
+            <comment value="継続支援情報セクションを示す「90040」を定義する。"/>
+            <fixedCode value="90040"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90040.code.coding.display">
+            <path value="Composition.section.code.coding.display"/>
+            <short value="セクション区分コードの名称"/>
+            <definition value="セクション区分コードの名称です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90040.text">
+            <path value="Composition.section.text"/>
+            <short value="セクションの内容を示すテキスト"/>
+            <definition value="セクションの内容を示すテキストです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90040.text.status">
+            <path value="Composition.section.text.status"/>
+            <definition value="このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。"/>
+            <fixedCode value="generated"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90040.text.div">
+            <path value="Composition.section.text.div"/>
+            <short value="このリソースの概要"/>
+            <definition value="このリソースの概要です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90040.entry">
+            <path value="Composition.section.entry"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="reference"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Composition.section:90040.entry:Observation">
+            <path value="Composition.section.entry"/>
+            <sliceName value="Observation"/>
+            <short value="健診項⽬情報の参照"/>
+            <definition value="健診項⽬情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90040.entry:Observation.reference">
+            <path value="Composition.section.entry.reference"/>
+            <short value="健診項⽬情報の参照"/>
+            <definition value="健診項⽬情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90040.entry:Coverage">
+            <path value="Composition.section.entry"/>
+            <sliceName value="Coverage"/>
+            <short value="保険証情報と受診券情報の参照"/>
+            <definition value="保険証情報と受診券情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90040.entry:Coverage.reference">
+            <path value="Composition.section.entry.reference"/>
+            <short value="保険証情報と受診券情報の参照"/>
+            <definition value="保険証情報と受診券情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90050">
+            <path value="Composition.section"/>
+            <sliceName value="90050"/>
+            <short value="中間評価情報セクション"/>
+            <definition value="中間評価情報セクションです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90050.title">
+            <path value="Composition.section.title"/>
+            <short value="セクションのタイトル"/>
+            <definition value="セクションのタイトルです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90050.code">
+            <path value="Composition.section.code"/>
+            <short value="セクション区分"/>
+            <definition value="セクション区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90050.code.coding">
+            <path value="Composition.section.code.coding"/>
+            <short value="セクション区分"/>
+            <definition value="セクション区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90050.code.coding.system">
+            <path value="Composition.section.code.coding.system"/>
+            <short value="セクション区分コードのURI"/>
+            <definition value="セクション区分コードのURI"/>
+            <fixedUri value="urn:oid:1.2.392.200119.6.1010"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90050.code.coding.code">
+            <path value="Composition.section.code.coding.code"/>
+            <short value="セクション区分コード"/>
+            <definition value="セクション区分コードです。"/>
+            <comment value="中間評価情報セクションを示す「90050」を定義する。"/>
+            <fixedCode value="90050"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90050.code.coding.display">
+            <path value="Composition.section.code.coding.display"/>
+            <short value="セクション区分コードの名称"/>
+            <definition value="セクション区分コードの名称です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90050.text">
+            <path value="Composition.section.text"/>
+            <short value="セクションの内容を示すテキスト"/>
+            <definition value="セクションの内容を示すテキストです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90050.text.status">
+            <path value="Composition.section.text.status"/>
+            <definition value="このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。"/>
+            <fixedCode value="generated"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90050.text.div">
+            <path value="Composition.section.text.div"/>
+            <short value="このリソースの概要"/>
+            <definition value="このリソースの概要です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90050.entry">
+            <path value="Composition.section.entry"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="reference"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Composition.section:90050.entry:Observation">
+            <path value="Composition.section.entry"/>
+            <sliceName value="Observation"/>
+            <short value="健診項⽬情報の参照"/>
+            <definition value="健診項⽬情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90050.entry:Observation.reference">
+            <path value="Composition.section.entry.reference"/>
+            <short value="健診項⽬情報の参照"/>
+            <definition value="健診項⽬情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90050.entry:Coverage">
+            <path value="Composition.section.entry"/>
+            <sliceName value="Coverage"/>
+            <short value="保険証情報と受診券情報の参照"/>
+            <definition value="保険証情報と受診券情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90050.entry:Coverage.reference">
+            <path value="Composition.section.entry.reference"/>
+            <short value="保険証情報と受診券情報の参照"/>
+            <definition value="保険証情報と受診券情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90060">
+            <path value="Composition.section"/>
+            <sliceName value="90060"/>
+            <short value="最終評価情報セクション"/>
+            <definition value="最終評価情報セクションです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90060.title">
+            <path value="Composition.section.title"/>
+            <short value="セクションのタイトル"/>
+            <definition value="セクションのタイトルです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90060.code">
+            <path value="Composition.section.code"/>
+            <short value="セクション区分"/>
+            <definition value="セクション区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90060.code.coding">
+            <path value="Composition.section.code.coding"/>
+            <short value="セクション区分"/>
+            <definition value="セクション区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90060.code.coding.system">
+            <path value="Composition.section.code.coding.system"/>
+            <short value="セクション区分コードのURI"/>
+            <definition value="セクション区分コードのURI"/>
+            <fixedUri value="urn:oid:1.2.392.200119.6.1010"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90060.code.coding.code">
+            <path value="Composition.section.code.coding.code"/>
+            <short value="セクション区分コード"/>
+            <definition value="セクション区分コードです。"/>
+            <comment value="最終評価情報セクションを示す「90060」を定義する。"/>
+            <fixedCode value="90060"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90060.code.coding.display">
+            <path value="Composition.section.code.coding.display"/>
+            <short value="セクション区分コードの名称"/>
+            <definition value="セクション区分コードの名称です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90060.text">
+            <path value="Composition.section.text"/>
+            <short value="セクションの内容を示すテキスト"/>
+            <definition value="セクションの内容を示すテキストです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90060.text.status">
+            <path value="Composition.section.text.status"/>
+            <definition value="このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。"/>
+            <fixedCode value="generated"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90060.text.div">
+            <path value="Composition.section.text.div"/>
+            <short value="このリソースの概要"/>
+            <definition value="このリソースの概要です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90060.entry">
+            <path value="Composition.section.entry"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="reference"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Composition.section:90060.entry:Observation">
+            <path value="Composition.section.entry"/>
+            <sliceName value="Observation"/>
+            <short value="健診項⽬情報の参照"/>
+            <definition value="健診項⽬情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90060.entry:Observation.reference">
+            <path value="Composition.section.entry.reference"/>
+            <short value="健診項⽬情報の参照"/>
+            <definition value="健診項⽬情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90060.entry:Coverage">
+            <path value="Composition.section.entry"/>
+            <sliceName value="Coverage"/>
+            <short value="保険証情報と受診券情報の参照"/>
+            <definition value="保険証情報と受診券情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90060.entry:Coverage.reference">
+            <path value="Composition.section.entry.reference"/>
+            <short value="保険証情報と受診券情報の参照"/>
+            <definition value="保険証情報と受診券情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90070">
+            <path value="Composition.section"/>
+            <sliceName value="90070"/>
+            <short value="指導集計情報セクション"/>
+            <definition value="指導集計情報セクションです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90070.title">
+            <path value="Composition.section.title"/>
+            <short value="セクションのタイトル"/>
+            <definition value="セクションのタイトルです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90070.code">
+            <path value="Composition.section.code"/>
+            <short value="セクション区分"/>
+            <definition value="セクション区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90070.code.coding">
+            <path value="Composition.section.code.coding"/>
+            <short value="セクション区分"/>
+            <definition value="セクション区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90070.code.coding.system">
+            <path value="Composition.section.code.coding.system"/>
+            <short value="セクション区分コードのURI"/>
+            <definition value="セクション区分コードのURI"/>
+            <fixedUri value="urn:oid:1.2.392.200119.6.1010"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90070.code.coding.code">
+            <path value="Composition.section.code.coding.code"/>
+            <short value="セクション区分コード"/>
+            <definition value="セクション区分コードです。"/>
+            <comment value="指導集計情報セクションを示す「90070」を定義する。"/>
+            <fixedCode value="90070"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90070.code.coding.display">
+            <path value="Composition.section.code.coding.display"/>
+            <short value="セクション区分コードの名称"/>
+            <definition value="セクション区分コードの名称です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90070.text">
+            <path value="Composition.section.text"/>
+            <short value="セクションの内容を示すテキスト"/>
+            <definition value="セクションの内容を示すテキストです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90070.text.status">
+            <path value="Composition.section.text.status"/>
+            <definition value="このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。"/>
+            <fixedCode value="generated"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90070.text.div">
+            <path value="Composition.section.text.div"/>
+            <short value="このリソースの概要"/>
+            <definition value="このリソースの概要です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90070.entry">
+            <path value="Composition.section.entry"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="reference"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Composition.section:90070.entry:Observation">
+            <path value="Composition.section.entry"/>
+            <sliceName value="Observation"/>
+            <short value="健診項⽬情報の参照"/>
+            <definition value="健診項⽬情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90070.entry:Observation.reference">
+            <path value="Composition.section.entry.reference"/>
+            <short value="健診項⽬情報の参照"/>
+            <definition value="健診項⽬情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90070.entry:Coverage">
+            <path value="Composition.section.entry"/>
+            <sliceName value="Coverage"/>
+            <short value="保険証情報と受診券情報の参照"/>
+            <definition value="保険証情報と受診券情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90070.entry:Coverage.reference">
+            <path value="Composition.section.entry.reference"/>
+            <short value="保険証情報と受診券情報の参照"/>
+            <definition value="保険証情報と受診券情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90080">
+            <path value="Composition.section"/>
+            <sliceName value="90080"/>
+            <short value="指導機関情報セクション"/>
+            <definition value="指導機関情報セクションです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90080.title">
+            <path value="Composition.section.title"/>
+            <short value="セクションのタイトル"/>
+            <definition value="セクションのタイトルです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90080.code">
+            <path value="Composition.section.code"/>
+            <short value="セクション区分"/>
+            <definition value="セクション区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90080.code.coding">
+            <path value="Composition.section.code.coding"/>
+            <short value="セクション区分"/>
+            <definition value="セクション区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90080.code.coding.system">
+            <path value="Composition.section.code.coding.system"/>
+            <short value="セクション区分コードのURI"/>
+            <definition value="セクション区分コードのURI"/>
+            <fixedUri value="urn:oid:1.2.392.200119.6.1010"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90080.code.coding.code">
+            <path value="Composition.section.code.coding.code"/>
+            <short value="セクション区分コード"/>
+            <definition value="セクション区分コードです。"/>
+            <comment value="指導機関情報セクションを示す「90080」を定義する。"/>
+            <fixedCode value="90080"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90080.code.coding.display">
+            <path value="Composition.section.code.coding.display"/>
+            <short value="セクション区分コードの名称"/>
+            <definition value="セクション区分コードの名称です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90080.text">
+            <path value="Composition.section.text"/>
+            <short value="セクションの内容を示すテキスト"/>
+            <definition value="セクションの内容を示すテキストです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90080.text.status">
+            <path value="Composition.section.text.status"/>
+            <definition value="このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。"/>
+            <fixedCode value="generated"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90080.text.div">
+            <path value="Composition.section.text.div"/>
+            <short value="このリソースの概要"/>
+            <definition value="このリソースの概要です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90080.entry">
+            <path value="Composition.section.entry"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="reference"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Composition.section:90080.entry:Observation">
+            <path value="Composition.section.entry"/>
+            <sliceName value="Observation"/>
+            <short value="健診項⽬情報の参照"/>
+            <definition value="健診項⽬情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90080.entry:Observation.reference">
+            <path value="Composition.section.entry.reference"/>
+            <short value="健診項⽬情報の参照"/>
+            <definition value="健診項⽬情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90080.entry:Coverage">
+            <path value="Composition.section.entry"/>
+            <sliceName value="Coverage"/>
+            <short value="保険証情報と受診券情報の参照"/>
+            <definition value="保険証情報と受診券情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:90080.entry:Coverage.reference">
+            <path value="Composition.section.entry.reference"/>
+            <short value="保険証情報と受診券情報の参照"/>
+            <definition value="保険証情報と受診券情報の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:Document">
+            <path value="Composition.section"/>
+            <sliceName value="Document"/>
+            <short value="添付書類セクション"/>
+            <definition value="添付書類セクションです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:Document.title">
+            <path value="Composition.section.title"/>
+            <short value="セクションのタイトル"/>
+            <definition value="セクションのタイトルです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:Document.code">
+            <path value="Composition.section.code"/>
+            <short value="セクション区分"/>
+            <definition value="セクション区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:Document.code.coding">
+            <path value="Composition.section.code.coding"/>
+            <short value="セクション区分"/>
+            <definition value="セクション区分です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:Document.code.coding.system">
+            <path value="Composition.section.code.coding.system"/>
+            <short value="セクション区分コードのURI"/>
+            <definition value="セクション区分コードのURIです。"/>
+            <fixedUri value="urn:oid:1.2.392.200119.6.1002"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:Document.code.coding.code">
+            <path value="Composition.section.code.coding.code"/>
+            <short value="セクション区分コード"/>
+            <definition value="セクション区分コードです。"/>
+            <comment value="添付書類セクションを示す「01995」を定義する。"/>
+            <fixedCode value="01995"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:Document.code.coding.display">
+            <path value="Composition.section.code.coding.display"/>
+            <short value="セクション区分コードの名称"/>
+            <definition value="セクション区分コードの名称です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:Document.text">
+            <path value="Composition.section.text"/>
+            <short value="セクションの内容を示すテキスト"/>
+            <definition value="セクションの内容を示すテキストです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:Document.text.status">
+            <path value="Composition.section.text.status"/>
+            <definition value="このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。"/>
+            <fixedCode value="generated"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:Document.text.div">
+            <path value="Composition.section.text.div"/>
+            <short value="このリソースの概要"/>
+            <definition value="このリソースの概要です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:Document.entry">
+            <path value="Composition.section.entry"/>
+            <short value="添付書類の参照"/>
+            <definition value="添付書類の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Composition.section:Document.entry.reference">
+            <path value="Composition.section.entry.reference"/>
+            <short value="添付書類の参照"/>
+            <definition value="添付書類の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+    </differential>
+</StructureDefinition>

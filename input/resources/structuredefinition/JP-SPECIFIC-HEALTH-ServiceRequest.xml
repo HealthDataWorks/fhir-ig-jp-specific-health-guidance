@@ -3,9 +3,9 @@
     xmlns="http://hl7.org/fhir">
     <id value="JP-SPECIFIC-HEALTH-ServiceRequest"/>
     <meta>
-        <versionId value="13"/>
-        <lastUpdated value="2021-05-11T06:32:33.537+00:00"/>
-        <source value="#vD1FZY0PFUWqZ8YR"/>
+        <versionId value="28"/>
+        <lastUpdated value="2021-06-01T10:59:13.954+00:00"/>
+        <source value="#XjbKfEIUDfiex9mZ"/>
     </meta>
     <url value="https://igs.healthdataworks.net/jp-specific-health-guidance/StructureDefinition-JP-SPECIFIC-HEALTH-ServiceRequest.html"/>
     <name value="ServiceRequest"/>
@@ -227,6 +227,130 @@
                 <map value="Act.text?"/>
             </mapping>
         </element>
+        <element id="ServiceRequest.text.id">
+            <path value="ServiceRequest.text.id"/>
+            <representation value="xmlAttr"/>
+            <short value="Unique id for inter-element referencing"/>
+            <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
+            <min value="0"/>
+            <max value="1"/>
+            <base>
+                <path value="Element.id"/>
+                <min value="0"/>
+                <max value="1"/>
+            </base>
+            <type>
+                <code value="string"/>
+            </type>
+            <isModifier value="false"/>
+            <isSummary value="false"/>
+            <mapping>
+                <identity value="rim"/>
+                <map value="n/a"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.text.extension">
+            <path value="ServiceRequest.text.extension"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="url"/>
+                </discriminator>
+                <description value="Extensions are always sliced by (at least) url"/>
+                <rules value="open"/>
+            </slicing>
+            <short value="Additional content defined by implementations"/>
+            <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+            <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+            <alias value="extensions"/>
+            <alias value="user content"/>
+            <min value="0"/>
+            <max value="*"/>
+            <base>
+                <path value="Element.extension"/>
+                <min value="0"/>
+                <max value="*"/>
+            </base>
+            <type>
+                <code value="Extension"/>
+            </type>
+            <isModifier value="false"/>
+            <isSummary value="false"/>
+            <mapping>
+                <identity value="rim"/>
+                <map value="n/a"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.text.status">
+            <path value="ServiceRequest.text.status"/>
+            <short value="generated | extensions | additional | empty"/>
+            <definition value="このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。"/>
+            <min value="1"/>
+            <max value="1"/>
+            <base>
+                <path value="Narrative.status"/>
+                <min value="1"/>
+                <max value="1"/>
+            </base>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedCode value="generated"/>
+            <mustSupport value="true"/>
+            <isModifier value="false"/>
+            <isSummary value="false"/>
+            <binding>
+                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+                    <valueString value="NarrativeStatus"/>
+                </extension>
+                <strength value="required"/>
+                <description value="The status of a resource narrative."/>
+                <valueSet value="http://hl7.org/fhir/ValueSet/narrative-status|4.0.0"/>
+            </binding>
+            <mapping>
+                <identity value="rim"/>
+                <map value="N/A"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.text.div">
+            <path value="ServiceRequest.text.div"/>
+            <short value="このリソースの概要"/>
+            <definition value="このリソースの概要です。"/>
+            <comment value="The contents of the html element are an XHTML fragment containing only the basic html formatting elements described in chapters 7-11 and 15 of the HTML 4.0 standard, &lt;a&gt; elements (either name or href), images and internally contained stylesheets. The XHTML content SHALL NOT contain a head, a body, external stylesheet references, scripts, forms, base/link/xlink, frames, iframes and objects."/>
+            <min value="1"/>
+            <max value="1"/>
+            <base>
+                <path value="Narrative.div"/>
+                <min value="1"/>
+                <max value="1"/>
+            </base>
+            <type>
+                <code value="xhtml"/>
+            </type>
+            <constraint>
+                <key value="txt-1"/>
+                <severity value="error"/>
+                <human value="The narrative SHALL contain only the basic html formatting elements and attributes described in chapters 7-11 (except section 4 of chapter 9) and 15 of the HTML 4.0 standard, &lt;a&gt; elements (either name or href), images and internally contained style attributes"/>
+                <expression value="htmlChecks()"/>
+                <xpath value="not(descendant-or-self::*[not(local-name(.)=('a', 'abbr', 'acronym', 'b', 'big', 'blockquote', 'br', 'caption', 'cite', 'code', 'col', 'colgroup', 'dd', 'dfn', 'div', 'dl', 'dt', 'em', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hr', 'i', 'img', 'li', 'ol', 'p', 'pre', 'q', 'samp', 'small', 'span', 'strong', 'sub', 'sup', 'table', 'tbody', 'td', 'tfoot', 'th', 'thead', 'tr', 'tt', 'ul', 'var'))]) and not(descendant-or-self::*/@*[not(name(.)=('abbr', 'accesskey', 'align', 'alt', 'axis', 'bgcolor', 'border', 'cellhalign', 'cellpadding', 'cellspacing', 'cellvalign', 'char', 'charoff', 'charset', 'cite', 'class', 'colspan', 'compact', 'coords', 'dir', 'frame', 'headers', 'height', 'href', 'hreflang', 'hspace', 'id', 'lang', 'longdesc', 'name', 'nowrap', 'rel', 'rev', 'rowspan', 'rules', 'scope', 'shape', 'span', 'src', 'start', 'style', 'summary', 'tabindex', 'title', 'type', 'valign', 'value', 'vspace', 'width'))])"/>
+                <source value="Narrative.div"/>
+            </constraint>
+            <constraint>
+                <key value="txt-2"/>
+                <severity value="error"/>
+                <human value="The narrative SHALL have some non-whitespace content"/>
+                <expression value="htmlChecks()"/>
+                <xpath value="descendant::text()[normalize-space(.)!=''] or descendant::h:img[@src]"/>
+                <source value="Narrative.div"/>
+            </constraint>
+            <mustSupport value="true"/>
+            <isModifier value="false"/>
+            <isSummary value="false"/>
+            <mapping>
+                <identity value="rim"/>
+                <map value="N/A"/>
+            </mapping>
+        </element>
         <element id="ServiceRequest.contained">
             <path value="ServiceRequest.contained"/>
             <short value="Contained, inline Resources"/>
@@ -304,13 +428,6 @@
         </element>
         <element id="ServiceRequest.identifier">
             <path value="ServiceRequest.identifier"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="url"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
             <short value="Identifiers assigned to this order"/>
             <definition value="Identifiers assigned to this order instance by the orderer and/or the receiver and/or order fulfiller."/>
             <comment value="The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the 'Placer' in HL7 v2) and the producer of the observations in response to the order (known as the 'Filler' in HL7 v2).  For further discussion and examples see the resource notes section below."/>
@@ -345,919 +462,6 @@
             <mapping>
                 <identity value="quick"/>
                 <map value="ClinicalStatement.identifier"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:representedOrganization">
-            <path value="ServiceRequest.identifier"/>
-            <sliceName value="representedOrganization"/>
-            <short value="Identifiers assigned to this order"/>
-            <definition value="Identifiers assigned to this order instance by the orderer and/or the receiver and/or order fulfiller."/>
-            <comment value="The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the 'Placer' in HL7 v2) and the producer of the observations in response to the order (known as the 'Filler' in HL7 v2).  For further discussion and examples see the resource notes section below."/>
-            <min value="0"/>
-            <max value="*"/>
-            <base>
-                <path value="ServiceRequest.identifier"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <type>
-                <code value="Identifier"/>
-            </type>
-            <mustSupport value="true"/>
-            <isModifier value="false"/>
-            <isSummary value="true"/>
-            <mapping>
-                <identity value="workflow"/>
-                <map value="Request.identifier"/>
-            </mapping>
-            <mapping>
-                <identity value="w5"/>
-                <map value="FiveWs.identifier"/>
-            </mapping>
-            <mapping>
-                <identity value="v2"/>
-                <map value="ORC.2, ORC.3, RF1-6 / RF1-11,"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value=".identifier"/>
-            </mapping>
-            <mapping>
-                <identity value="quick"/>
-                <map value="ClinicalStatement.identifier"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:representedOrganization.id">
-            <path value="ServiceRequest.identifier.id"/>
-            <representation value="xmlAttr"/>
-            <short value="Unique id for inter-element referencing"/>
-            <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Element.id"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="string"/>
-            </type>
-            <isModifier value="false"/>
-            <isSummary value="false"/>
-            <mapping>
-                <identity value="rim"/>
-                <map value="n/a"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:representedOrganization.extension">
-            <path value="ServiceRequest.identifier.extension"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="url"/>
-                </discriminator>
-                <description value="Extensions are always sliced by (at least) url"/>
-                <rules value="open"/>
-            </slicing>
-            <short value="Additional content defined by implementations"/>
-            <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
-            <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
-            <alias value="extensions"/>
-            <alias value="user content"/>
-            <min value="0"/>
-            <max value="*"/>
-            <base>
-                <path value="Element.extension"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <type>
-                <code value="Extension"/>
-            </type>
-            <isModifier value="false"/>
-            <isSummary value="false"/>
-            <mapping>
-                <identity value="rim"/>
-                <map value="n/a"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:representedOrganization.use">
-            <path value="ServiceRequest.identifier.use"/>
-            <short value="usual | official | temp | secondary | old (If known)"/>
-            <definition value="The purpose of this identifier."/>
-            <comment value="Applications can assume that an identifier is permanent unless it explicitly says that it is temporary."/>
-            <requirements value="Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Identifier.use"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="code"/>
-            </type>
-            <isModifier value="true"/>
-            <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary id for a permanent one."/>
-            <isSummary value="true"/>
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="IdentifierUse"/>
-                </extension>
-                <strength value="required"/>
-                <description value="Identifies the purpose for this identifier, if known ."/>
-                <valueSet value="http://hl7.org/fhir/ValueSet/identifier-use|4.0.0"/>
-            </binding>
-            <mapping>
-                <identity value="v2"/>
-                <map value="N/A"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value="Role.code or implied by context"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:representedOrganization.type">
-            <path value="ServiceRequest.identifier.type"/>
-            <short value="Description of identifier"/>
-            <definition value="A coded type for the identifier that can be used to determine which identifier to use for a specific purpose."/>
-            <comment value="This element deals only with general categories of identifiers.  It SHOULD not be used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple categories due to common usage.   Where the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type."/>
-            <requirements value="Allows users to make use of identifiers when the identifier system is not known."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Identifier.type"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <isModifier value="false"/>
-            <isSummary value="true"/>
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="IdentifierType"/>
-                </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-                    <valueBoolean value="true"/>
-                </extension>
-                <strength value="extensible"/>
-                <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."/>
-                <valueSet value="http://hl7.org/fhir/ValueSet/identifier-type"/>
-            </binding>
-            <mapping>
-                <identity value="v2"/>
-                <map value="CX.5"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value="Role.code or implied by context"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:representedOrganization.system">
-            <path value="ServiceRequest.identifier.system"/>
-            <short value="特定保健指導機関番号のOID"/>
-            <definition value="特定保健指導機関番号のOIDです。"/>
-            <comment value="Identifier.system is always case sensitive."/>
-            <requirements value="There are many sets  of identifiers.  To perform matching of two identifiers, we need to know what set we're dealing with. The system identifies a particular set of unique identifiers."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Identifier.system"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="uri"/>
-            </type>
-            <example>
-                <label value="General"/>
-                <valueUri value="http://www.acme.com/identifiers/patient"/>
-            </example>
-            <mustSupport value="true"/>
-            <isModifier value="false"/>
-            <isSummary value="true"/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="https://igs.healthdataworks.net/jp-specific-health-checkups/ValueSet-ValueSet-JP-SPECIFIC-HEALTH-MedicalExaminationInstitutionNumber.html"/>
-            </binding>
-            <mapping>
-                <identity value="v2"/>
-                <map value="CX.4 / EI-2-4"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value="II.root or Role.id.root"/>
-            </mapping>
-            <mapping>
-                <identity value="servd"/>
-                <map value="./IdentifierType"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:representedOrganization.value">
-            <path value="ServiceRequest.identifier.value"/>
-            <short value="特定保健指導機関番号"/>
-            <definition value="特定保健指導機関番号です。"/>
-            <comment value="If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986.  The value's primary purpose is computational mapping.  As a result, it may be normalized for comparison purposes (e.g. removing non-significant whitespace, dashes, etc.)  A value formatted for human display can be conveyed using the [Rendered Value extension](extension-rendered-value.html). Identifier.value is to be treated as case sensitive unless knowledge of the Identifier.system allows the processer to be confident that non-case-sensitive processing is safe."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Identifier.value"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="string"/>
-            </type>
-            <example>
-                <label value="General"/>
-                <valueString value="123456"/>
-            </example>
-            <mustSupport value="true"/>
-            <isModifier value="false"/>
-            <isSummary value="true"/>
-            <mapping>
-                <identity value="v2"/>
-                <map value="CX.1 / EI.1"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value="II.extension or II.root if system indicates OID or GUID (Or Role.id.extension or root)"/>
-            </mapping>
-            <mapping>
-                <identity value="servd"/>
-                <map value="./Value"/>
-            </mapping>
-            <mapping>
-                <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
-                <map value="XML No: 7.5.1 XPath: /ClinicalDocument/author/assignedAuthor/representedOrganization/id/@extension"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:representedOrganization.period">
-            <path value="ServiceRequest.identifier.period"/>
-            <short value="Time period when id is/was valid for use"/>
-            <definition value="Time period during which identifier is/was valid for use."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Identifier.period"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="Period"/>
-            </type>
-            <isModifier value="false"/>
-            <isSummary value="true"/>
-            <mapping>
-                <identity value="v2"/>
-                <map value="CX.7 + CX.8"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value="Role.effectiveTime or implied by context"/>
-            </mapping>
-            <mapping>
-                <identity value="servd"/>
-                <map value="./StartDate and ./EndDate"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:representedOrganization.assigner">
-            <path value="ServiceRequest.identifier.assigner"/>
-            <short value="Organization that issued id (may be just text)"/>
-            <definition value="Organization that issued/manages the identifier."/>
-            <comment value="The Identifier.assigner may omit the .reference element and only contain a .display element reflecting the name or other textual information about the assigning organization."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Identifier.assigner"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-            </type>
-            <isModifier value="false"/>
-            <isSummary value="true"/>
-            <mapping>
-                <identity value="v2"/>
-                <map value="CX.4 / (CX.4,CX.9,CX.10)"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value="II.assigningAuthorityName but note that this is an improper use by the definition of the field.  Also Role.scoper"/>
-            </mapping>
-            <mapping>
-                <identity value="servd"/>
-                <map value="./IdentifierIssuingAuthority"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity1">
-            <path value="ServiceRequest.identifier"/>
-            <sliceName value="associatedEntity1"/>
-            <short value="特定健診受診券整理番号"/>
-            <definition value="特定健診受診券整理番号です。"/>
-            <comment value="The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the 'Placer' in HL7 v2) and the producer of the observations in response to the order (known as the 'Filler' in HL7 v2).  For further discussion and examples see the resource notes section below."/>
-            <min value="0"/>
-            <max value="*"/>
-            <base>
-                <path value="ServiceRequest.identifier"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <type>
-                <code value="Identifier"/>
-            </type>
-            <mustSupport value="true"/>
-            <isModifier value="false"/>
-            <isSummary value="true"/>
-            <mapping>
-                <identity value="workflow"/>
-                <map value="Request.identifier"/>
-            </mapping>
-            <mapping>
-                <identity value="w5"/>
-                <map value="FiveWs.identifier"/>
-            </mapping>
-            <mapping>
-                <identity value="v2"/>
-                <map value="ORC.2, ORC.3, RF1-6 / RF1-11,"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value=".identifier"/>
-            </mapping>
-            <mapping>
-                <identity value="quick"/>
-                <map value="ClinicalStatement.identifier"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity1.id">
-            <path value="ServiceRequest.identifier.id"/>
-            <representation value="xmlAttr"/>
-            <short value="Unique id for inter-element referencing"/>
-            <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Element.id"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="string"/>
-            </type>
-            <isModifier value="false"/>
-            <isSummary value="false"/>
-            <mapping>
-                <identity value="rim"/>
-                <map value="n/a"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity1.extension">
-            <path value="ServiceRequest.identifier.extension"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="url"/>
-                </discriminator>
-                <description value="Extensions are always sliced by (at least) url"/>
-                <rules value="open"/>
-            </slicing>
-            <short value="Additional content defined by implementations"/>
-            <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
-            <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
-            <alias value="extensions"/>
-            <alias value="user content"/>
-            <min value="0"/>
-            <max value="*"/>
-            <base>
-                <path value="Element.extension"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <type>
-                <code value="Extension"/>
-            </type>
-            <isModifier value="false"/>
-            <isSummary value="false"/>
-            <mapping>
-                <identity value="rim"/>
-                <map value="n/a"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity1.use">
-            <path value="ServiceRequest.identifier.use"/>
-            <short value="usual | official | temp | secondary | old (If known)"/>
-            <definition value="The purpose of this identifier."/>
-            <comment value="Applications can assume that an identifier is permanent unless it explicitly says that it is temporary."/>
-            <requirements value="Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Identifier.use"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="code"/>
-            </type>
-            <isModifier value="true"/>
-            <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary id for a permanent one."/>
-            <isSummary value="true"/>
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="IdentifierUse"/>
-                </extension>
-                <strength value="required"/>
-                <description value="Identifies the purpose for this identifier, if known ."/>
-                <valueSet value="http://hl7.org/fhir/ValueSet/identifier-use|4.0.0"/>
-            </binding>
-            <mapping>
-                <identity value="v2"/>
-                <map value="N/A"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value="Role.code or implied by context"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity1.type">
-            <path value="ServiceRequest.identifier.type"/>
-            <short value="Description of identifier"/>
-            <definition value="A coded type for the identifier that can be used to determine which identifier to use for a specific purpose."/>
-            <comment value="This element deals only with general categories of identifiers.  It SHOULD not be used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple categories due to common usage.   Where the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type."/>
-            <requirements value="Allows users to make use of identifiers when the identifier system is not known."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Identifier.type"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <isModifier value="false"/>
-            <isSummary value="true"/>
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="IdentifierType"/>
-                </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-                    <valueBoolean value="true"/>
-                </extension>
-                <strength value="extensible"/>
-                <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."/>
-                <valueSet value="http://hl7.org/fhir/ValueSet/identifier-type"/>
-            </binding>
-            <mapping>
-                <identity value="v2"/>
-                <map value="CX.5"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value="Role.code or implied by context"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity1.system">
-            <path value="ServiceRequest.identifier.system"/>
-            <short value="特定健診受診券整理番号のOID"/>
-            <definition value="特定健診受診券整理番号のOIDです。"/>
-            <comment value="Identifier.system is always case sensitive."/>
-            <requirements value="There are many sets  of identifiers.  To perform matching of two identifiers, we need to know what set we're dealing with. The system identifies a particular set of unique identifiers."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Identifier.system"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="uri"/>
-            </type>
-            <example>
-                <label value="General"/>
-                <valueUri value="http://www.acme.com/identifiers/patient"/>
-            </example>
-            <mustSupport value="true"/>
-            <isModifier value="false"/>
-            <isSummary value="true"/>
-            <mapping>
-                <identity value="v2"/>
-                <map value="CX.4 / EI-2-4"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value="II.root or Role.id.root"/>
-            </mapping>
-            <mapping>
-                <identity value="servd"/>
-                <map value="./IdentifierType"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity1.value">
-            <path value="ServiceRequest.identifier.value"/>
-            <short value="特定健診受診券整理番号"/>
-            <definition value="特定健診受診券整理番号です。"/>
-            <comment value="If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986.  The value's primary purpose is computational mapping.  As a result, it may be normalized for comparison purposes (e.g. removing non-significant whitespace, dashes, etc.)  A value formatted for human display can be conveyed using the [Rendered Value extension](extension-rendered-value.html). Identifier.value is to be treated as case sensitive unless knowledge of the Identifier.system allows the processer to be confident that non-case-sensitive processing is safe."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Identifier.value"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="string"/>
-            </type>
-            <example>
-                <label value="General"/>
-                <valueString value="123456"/>
-            </example>
-            <mustSupport value="true"/>
-            <isModifier value="false"/>
-            <isSummary value="true"/>
-            <mapping>
-                <identity value="v2"/>
-                <map value="CX.1 / EI.1"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value="II.extension or II.root if system indicates OID or GUID (Or Role.id.extension or root)"/>
-            </mapping>
-            <mapping>
-                <identity value="servd"/>
-                <map value="./Value"/>
-            </mapping>
-            <mapping>
-                <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
-                <map value="XML No: 9.6.1 XPath: /ClinicalDocument/participant[functionCode/@code=&quot;1&quot;]/associatedEntity/id/@extension"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity1.period">
-            <path value="ServiceRequest.identifier.period"/>
-            <short value="Time period when id is/was valid for use"/>
-            <definition value="Time period during which identifier is/was valid for use."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Identifier.period"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="Period"/>
-            </type>
-            <isModifier value="false"/>
-            <isSummary value="true"/>
-            <mapping>
-                <identity value="v2"/>
-                <map value="CX.7 + CX.8"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value="Role.effectiveTime or implied by context"/>
-            </mapping>
-            <mapping>
-                <identity value="servd"/>
-                <map value="./StartDate and ./EndDate"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity1.assigner">
-            <path value="ServiceRequest.identifier.assigner"/>
-            <short value="Organization that issued id (may be just text)"/>
-            <definition value="Organization that issued/manages the identifier."/>
-            <comment value="The Identifier.assigner may omit the .reference element and only contain a .display element reflecting the name or other textual information about the assigning organization."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Identifier.assigner"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-            </type>
-            <isModifier value="false"/>
-            <isSummary value="true"/>
-            <mapping>
-                <identity value="v2"/>
-                <map value="CX.4 / (CX.4,CX.9,CX.10)"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value="II.assigningAuthorityName but note that this is an improper use by the definition of the field.  Also Role.scoper"/>
-            </mapping>
-            <mapping>
-                <identity value="servd"/>
-                <map value="./IdentifierIssuingAuthority"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity2">
-            <path value="ServiceRequest.identifier"/>
-            <sliceName value="associatedEntity2"/>
-            <short value="利用券整理番号"/>
-            <definition value="利用券整理番号です。"/>
-            <comment value="The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the 'Placer' in HL7 v2) and the producer of the observations in response to the order (known as the 'Filler' in HL7 v2).  For further discussion and examples see the resource notes section below."/>
-            <min value="0"/>
-            <max value="*"/>
-            <base>
-                <path value="ServiceRequest.identifier"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <type>
-                <code value="Identifier"/>
-            </type>
-            <mustSupport value="true"/>
-            <isModifier value="false"/>
-            <isSummary value="true"/>
-            <mapping>
-                <identity value="workflow"/>
-                <map value="Request.identifier"/>
-            </mapping>
-            <mapping>
-                <identity value="w5"/>
-                <map value="FiveWs.identifier"/>
-            </mapping>
-            <mapping>
-                <identity value="v2"/>
-                <map value="ORC.2, ORC.3, RF1-6 / RF1-11,"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value=".identifier"/>
-            </mapping>
-            <mapping>
-                <identity value="quick"/>
-                <map value="ClinicalStatement.identifier"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity2.id">
-            <path value="ServiceRequest.identifier.id"/>
-            <representation value="xmlAttr"/>
-            <short value="Unique id for inter-element referencing"/>
-            <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Element.id"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="string"/>
-            </type>
-            <isModifier value="false"/>
-            <isSummary value="false"/>
-            <mapping>
-                <identity value="rim"/>
-                <map value="n/a"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity2.extension">
-            <path value="ServiceRequest.identifier.extension"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="url"/>
-                </discriminator>
-                <description value="Extensions are always sliced by (at least) url"/>
-                <rules value="open"/>
-            </slicing>
-            <short value="Additional content defined by implementations"/>
-            <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
-            <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
-            <alias value="extensions"/>
-            <alias value="user content"/>
-            <min value="0"/>
-            <max value="*"/>
-            <base>
-                <path value="Element.extension"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <type>
-                <code value="Extension"/>
-            </type>
-            <isModifier value="false"/>
-            <isSummary value="false"/>
-            <mapping>
-                <identity value="rim"/>
-                <map value="n/a"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity2.use">
-            <path value="ServiceRequest.identifier.use"/>
-            <short value="usual | official | temp | secondary | old (If known)"/>
-            <definition value="The purpose of this identifier."/>
-            <comment value="Applications can assume that an identifier is permanent unless it explicitly says that it is temporary."/>
-            <requirements value="Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Identifier.use"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="code"/>
-            </type>
-            <isModifier value="true"/>
-            <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary id for a permanent one."/>
-            <isSummary value="true"/>
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="IdentifierUse"/>
-                </extension>
-                <strength value="required"/>
-                <description value="Identifies the purpose for this identifier, if known ."/>
-                <valueSet value="http://hl7.org/fhir/ValueSet/identifier-use|4.0.0"/>
-            </binding>
-            <mapping>
-                <identity value="v2"/>
-                <map value="N/A"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value="Role.code or implied by context"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity2.type">
-            <path value="ServiceRequest.identifier.type"/>
-            <short value="Description of identifier"/>
-            <definition value="A coded type for the identifier that can be used to determine which identifier to use for a specific purpose."/>
-            <comment value="This element deals only with general categories of identifiers.  It SHOULD not be used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple categories due to common usage.   Where the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type."/>
-            <requirements value="Allows users to make use of identifiers when the identifier system is not known."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Identifier.type"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <isModifier value="false"/>
-            <isSummary value="true"/>
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="IdentifierType"/>
-                </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-                    <valueBoolean value="true"/>
-                </extension>
-                <strength value="extensible"/>
-                <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."/>
-                <valueSet value="http://hl7.org/fhir/ValueSet/identifier-type"/>
-            </binding>
-            <mapping>
-                <identity value="v2"/>
-                <map value="CX.5"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value="Role.code or implied by context"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity2.system">
-            <path value="ServiceRequest.identifier.system"/>
-            <short value="利用券整理番号のOID"/>
-            <definition value="利用券整理番号のOIDです。"/>
-            <comment value="Identifier.system is always case sensitive."/>
-            <requirements value="There are many sets  of identifiers.  To perform matching of two identifiers, we need to know what set we're dealing with. The system identifies a particular set of unique identifiers."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Identifier.system"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="uri"/>
-            </type>
-            <example>
-                <label value="General"/>
-                <valueUri value="http://www.acme.com/identifiers/patient"/>
-            </example>
-            <mustSupport value="true"/>
-            <isModifier value="false"/>
-            <isSummary value="true"/>
-            <mapping>
-                <identity value="v2"/>
-                <map value="CX.4 / EI-2-4"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value="II.root or Role.id.root"/>
-            </mapping>
-            <mapping>
-                <identity value="servd"/>
-                <map value="./IdentifierType"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity2.value">
-            <path value="ServiceRequest.identifier.value"/>
-            <short value="利用券整理番号"/>
-            <definition value="利用券整理番号です。"/>
-            <comment value="If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986.  The value's primary purpose is computational mapping.  As a result, it may be normalized for comparison purposes (e.g. removing non-significant whitespace, dashes, etc.)  A value formatted for human display can be conveyed using the [Rendered Value extension](extension-rendered-value.html). Identifier.value is to be treated as case sensitive unless knowledge of the Identifier.system allows the processer to be confident that non-case-sensitive processing is safe."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Identifier.value"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="string"/>
-            </type>
-            <example>
-                <label value="General"/>
-                <valueString value="123456"/>
-            </example>
-            <mustSupport value="true"/>
-            <isModifier value="false"/>
-            <isSummary value="true"/>
-            <mapping>
-                <identity value="v2"/>
-                <map value="CX.1 / EI.1"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value="II.extension or II.root if system indicates OID or GUID (Or Role.id.extension or root)"/>
-            </mapping>
-            <mapping>
-                <identity value="servd"/>
-                <map value="./Value"/>
-            </mapping>
-            <mapping>
-                <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
-                <map value="XML No: 9.6.1 XPath: /ClinicalDocument/participant[functionCode/@code=&quot;2&quot;]/associatedEntity/id/@extension"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity2.period">
-            <path value="ServiceRequest.identifier.period"/>
-            <short value="Time period when id is/was valid for use"/>
-            <definition value="Time period during which identifier is/was valid for use."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Identifier.period"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="Period"/>
-            </type>
-            <isModifier value="false"/>
-            <isSummary value="true"/>
-            <mapping>
-                <identity value="v2"/>
-                <map value="CX.7 + CX.8"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value="Role.effectiveTime or implied by context"/>
-            </mapping>
-            <mapping>
-                <identity value="servd"/>
-                <map value="./StartDate and ./EndDate"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity2.assigner">
-            <path value="ServiceRequest.identifier.assigner"/>
-            <short value="Organization that issued id (may be just text)"/>
-            <definition value="Organization that issued/manages the identifier."/>
-            <comment value="The Identifier.assigner may omit the .reference element and only contain a .display element reflecting the name or other textual information about the assigning organization."/>
-            <min value="0"/>
-            <max value="1"/>
-            <base>
-                <path value="Identifier.assigner"/>
-                <min value="0"/>
-                <max value="1"/>
-            </base>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-            </type>
-            <isModifier value="false"/>
-            <isSummary value="true"/>
-            <mapping>
-                <identity value="v2"/>
-                <map value="CX.4 / (CX.4,CX.9,CX.10)"/>
-            </mapping>
-            <mapping>
-                <identity value="rim"/>
-                <map value="II.assigningAuthorityName but note that this is an improper use by the definition of the field.  Also Role.scoper"/>
-            </mapping>
-            <mapping>
-                <identity value="servd"/>
-                <map value="./IdentifierIssuingAuthority"/>
             </mapping>
         </element>
         <element id="ServiceRequest.instantiatesCanonical">
@@ -1515,8 +719,8 @@
         </element>
         <element id="ServiceRequest.category">
             <path value="ServiceRequest.category"/>
-            <short value="保健指導実施時のプログラム種別"/>
-            <definition value="保健指導実施時のプログラム種別です。"/>
+            <short value="保険指導項⽬の区分"/>
+            <definition value="保険指導項⽬の区分です。"/>
             <comment value="There may be multiple axis of categorization depending on the context or use case for retrieving or displaying the resource.  The level of granularity is defined by the category concepts in the value set."/>
             <requirements value="Used for filtering what service request are retrieved and displayed."/>
             <min value="0"/>
@@ -1533,8 +737,12 @@
             <isModifier value="false"/>
             <isSummary value="true"/>
             <binding>
-                <strength value="required"/>
-                <valueSet value="https://igs.healthdataworks.net/jp-specific-health-checkups/ValueSet-ValueSet-JP-SPECIFIC-HEALTH-ProgramTypeCode.html"/>
+                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+                    <valueString value="ServiceRequestCategory"/>
+                </extension>
+                <strength value="example"/>
+                <description value="Classification of the requested service."/>
+                <valueSet value="http://hl7.org/fhir/ValueSet/servicerequest-category"/>
             </binding>
             <mapping>
                 <identity value="w5"/>
@@ -1605,8 +813,8 @@
         </element>
         <element id="ServiceRequest.category.coding">
             <path value="ServiceRequest.category.coding"/>
-            <short value="保健指導実施時のプログラム種別"/>
-            <definition value="保健指導実施時のプログラム種別です。"/>
+            <short value="保険指導項⽬の区分"/>
+            <definition value="保険指導項⽬の区分です。"/>
             <comment value="Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labeled as UserSelected = true."/>
             <requirements value="Allows for alternative encodings within a code system, and translations to other code systems."/>
             <min value="0"/>
@@ -1691,8 +899,8 @@
         </element>
         <element id="ServiceRequest.category.coding.system">
             <path value="ServiceRequest.category.coding.system"/>
-            <short value="保健指導実施時のプログラム種別のOID"/>
-            <definition value="保健指導実施時のプログラム種別のOIDです。"/>
+            <short value="保険指導項⽬の区分のURI"/>
+            <definition value="保険指導項⽬の区分のURIです。"/>
             <comment value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should reference to some definition that establishes the system clearly and unambiguously."/>
             <requirements value="Need to be unambiguous about the source of the definition of the symbol."/>
             <min value="0"/>
@@ -1705,13 +913,10 @@
             <type>
                 <code value="uri"/>
             </type>
+            <fixedUri value="http://hl7.org/fhir/ValueSet/servicerequest-category"/>
             <mustSupport value="true"/>
             <isModifier value="false"/>
             <isSummary value="true"/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="https://igs.healthdataworks.net/jp-specific-health-checkups/ValueSet-ValueSet-JP-SPECIFIC-HEALTH-ProgramTypeCode.html"/>
-            </binding>
             <mapping>
                 <identity value="v2"/>
                 <map value="C*E.3"/>
@@ -1757,8 +962,8 @@
         </element>
         <element id="ServiceRequest.category.coding.code">
             <path value="ServiceRequest.category.coding.code"/>
-            <short value="保健指導実施時のプログラム種別"/>
-            <definition value="保健指導実施時のプログラム種別です。"/>
+            <short value="保険指導項⽬の区分"/>
+            <definition value="保険指導項⽬の区分です。"/>
             <requirements value="Need to refer to a particular code in the system."/>
             <min value="0"/>
             <max value="1"/>
@@ -1784,10 +989,6 @@
             <mapping>
                 <identity value="orim"/>
                 <map value="fhir:Coding.code rdfs:subPropertyOf dt:CDCoding.code"/>
-            </mapping>
-            <mapping>
-                <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
-                <map value="XML No: 10.2.1 XPath: /ClinicalDocument/documentaionOf/serviceEvent/code/@code"/>
             </mapping>
         </element>
         <element id="ServiceRequest.category.coding.display">
@@ -1961,8 +1162,8 @@
         </element>
         <element id="ServiceRequest.code">
             <path value="ServiceRequest.code"/>
-            <short value="報告区分"/>
-            <definition value="報告区分です。"/>
+            <short value="保健指導項目コード"/>
+            <definition value="保健指導項目コードです。"/>
             <comment value="Many laboratory and radiology procedure codes embed the specimen/organ system in the test order name, for example,  serum or serum/plasma glucose, or a chest x-ray. The specimen might not be recorded separately from the test code."/>
             <alias value="service requested"/>
             <min value="0"/>
@@ -1979,8 +1180,9 @@
             <isModifier value="false"/>
             <isSummary value="true"/>
             <binding>
-                <strength value="required"/>
-                <valueSet value="https://igs.healthdataworks.net/jp-specific-health-checkups/ValueSet-ValueSet-JP-SPECIFIC-HEALTH-ReportCategory.html"/>
+                <strength value="example"/>
+                <description value="Codes for tests or services that can be carried out by a designated individual, organization or healthcare service.  For laboratory, LOINC is  (preferred)[http://build.fhir.org/terminologies.html#preferred] and a valueset using LOINC Order codes is available valueset-diagnostic-requests.html."/>
+                <valueSet value="http://hl7.org/fhir/ValueSet/procedure-code"/>
             </binding>
             <mapping>
                 <identity value="workflow"/>
@@ -2059,8 +1261,8 @@
         </element>
         <element id="ServiceRequest.code.coding">
             <path value="ServiceRequest.code.coding"/>
-            <short value="報告区分"/>
-            <definition value="報告区分です。"/>
+            <short value="保健指導項目コード"/>
+            <definition value="保健指導項目コードです。"/>
             <comment value="Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labeled as UserSelected = true."/>
             <requirements value="Allows for alternative encodings within a code system, and translations to other code systems."/>
             <min value="0"/>
@@ -2145,8 +1347,8 @@
         </element>
         <element id="ServiceRequest.code.coding.system">
             <path value="ServiceRequest.code.coding.system"/>
-            <short value="報告区分のOID"/>
-            <definition value="報告区分のOIDです。"/>
+            <short value="保健指導項目コードのURI"/>
+            <definition value="保健指導項目コードのURIです。"/>
             <comment value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should reference to some definition that establishes the system clearly and unambiguously."/>
             <requirements value="Need to be unambiguous about the source of the definition of the symbol."/>
             <min value="0"/>
@@ -2162,10 +1364,6 @@
             <mustSupport value="true"/>
             <isModifier value="false"/>
             <isSummary value="true"/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="https://igs.healthdataworks.net/jp-specific-health-checkups/ValueSet-ValueSet-JP-SPECIFIC-HEALTH-ReportCategory.html"/>
-            </binding>
             <mapping>
                 <identity value="v2"/>
                 <map value="C*E.3"/>
@@ -2211,8 +1409,8 @@
         </element>
         <element id="ServiceRequest.code.coding.code">
             <path value="ServiceRequest.code.coding.code"/>
-            <short value="報告区分"/>
-            <definition value="報告区分です。"/>
+            <short value="保健指導項目コード"/>
+            <definition value="保健指導項目コードです。"/>
             <requirements value="Need to refer to a particular code in the system."/>
             <min value="0"/>
             <max value="1"/>
@@ -2241,7 +1439,7 @@
             </mapping>
             <mapping>
                 <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
-                <map value="XML No: 3.1 XPath: /ClinicalDocument/code/@code"/>
+                <map value="XML No: 11.12.1 XPath: /ClinicalDocument/component/structuredBody/component/section/entry/act/entryRelationship/observation/code/@code"/>
             </mapping>
         </element>
         <element id="ServiceRequest.code.coding.display">
@@ -2249,8 +1447,8 @@
                 <valueBoolean value="true"/>
             </extension>
             <path value="ServiceRequest.code.coding.display"/>
-            <short value="Representation defined by the system"/>
-            <definition value="A representation of the meaning of the code in the system, following the rules of the system."/>
+            <short value="保健指導項目コードの名称"/>
+            <definition value="保健指導項目コードです。"/>
             <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system."/>
             <min value="0"/>
             <max value="1"/>
@@ -2262,6 +1460,7 @@
             <type>
                 <code value="string"/>
             </type>
+            <mustSupport value="true"/>
             <isModifier value="false"/>
             <isSummary value="true"/>
             <mapping>
@@ -2384,8 +1583,8 @@
         </element>
         <element id="ServiceRequest.quantity[x]">
             <path value="ServiceRequest.quantity[x]"/>
-            <short value="Service amount"/>
-            <definition value="An amount of service being requested which can be a quantity ( for example $1,500 home modification), a ratio ( for example, 20 half day visits per month), or a range (2.0 to 1.8 Gy per fraction)."/>
+            <short value="保健指導項目値"/>
+            <definition value="保健指導項目値です。"/>
             <requirements value="When ordering a service the number of service items may need to be specified separately from the the service item."/>
             <min value="0"/>
             <max value="1"/>
@@ -2403,6 +1602,7 @@
             <type>
                 <code value="Range"/>
             </type>
+            <mustSupport value="true"/>
             <isModifier value="false"/>
             <isSummary value="true"/>
             <mapping>
@@ -2412,6 +1612,16 @@
             <mapping>
                 <identity value="rim"/>
                 <map value=".quantity"/>
+            </mapping>
+            <mapping>
+                <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
+                <map value="XML No: 11.13.2 XPath: /ClinicalDocument/component/structuredBody/component/section/entry/act/entryRelationship/observation/value/@value"/>
+                <comment value="valueの場合"/>
+            </mapping>
+            <mapping>
+                <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
+                <map value="XML No: 11.13.3 XPath: /ClinicalDocument/component/structuredBody/component/section/entry/act/entryRelationship/observation/value/@unit"/>
+                <comment value="unitの場合"/>
             </mapping>
         </element>
         <element id="ServiceRequest.subject">
@@ -2735,8 +1945,8 @@
         </element>
         <element id="ServiceRequest.authoredOn">
             <path value="ServiceRequest.authoredOn"/>
-            <short value="保健指導ファイルの作成日"/>
-            <definition value="保健指導ファイルの作成日です。"/>
+            <short value="Date request signed"/>
+            <definition value="When the request transitioned to being actionable."/>
             <alias value="orderedOn"/>
             <min value="0"/>
             <max value="1"/>
@@ -2748,7 +1958,6 @@
             <type>
                 <code value="dateTime"/>
             </type>
-            <mustSupport value="true"/>
             <isModifier value="false"/>
             <isSummary value="true"/>
             <mapping>
@@ -2771,15 +1980,11 @@
                 <identity value="quick"/>
                 <map value="Proposal.proposedAtTime"/>
             </mapping>
-            <mapping>
-                <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
-                <map value="XML No: 4.1 XPath: /ClinicalDocument/effectiveTime/@value"/>
-            </mapping>
         </element>
         <element id="ServiceRequest.requester">
             <path value="ServiceRequest.requester"/>
-            <short value="Who/what is requesting service"/>
-            <definition value="The individual who initiated the request and has responsibility for its activation."/>
+            <short value="保険指導実施者情報の参照"/>
+            <definition value="保険指導実施者情報の参照です。"/>
             <comment value="This not the dispatcher, but rather who is the authorizer.  This element is not intended to handle delegation which would generally be managed through the Provenance resource."/>
             <alias value="author"/>
             <alias value="orderer"/>
@@ -2799,6 +2004,7 @@
                 <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
                 <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
             </type>
+            <mustSupport value="true"/>
             <isModifier value="false"/>
             <isSummary value="true"/>
             <mapping>
@@ -2820,6 +2026,161 @@
             <mapping>
                 <identity value="quick"/>
                 <map value="ClinicalStatement.statementAuthor"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.requester.id">
+            <path value="ServiceRequest.requester.id"/>
+            <representation value="xmlAttr"/>
+            <short value="Unique id for inter-element referencing"/>
+            <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
+            <min value="0"/>
+            <max value="1"/>
+            <base>
+                <path value="Element.id"/>
+                <min value="0"/>
+                <max value="1"/>
+            </base>
+            <type>
+                <code value="string"/>
+            </type>
+            <isModifier value="false"/>
+            <isSummary value="false"/>
+            <mapping>
+                <identity value="rim"/>
+                <map value="n/a"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.requester.extension">
+            <path value="ServiceRequest.requester.extension"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="url"/>
+                </discriminator>
+                <description value="Extensions are always sliced by (at least) url"/>
+                <rules value="open"/>
+            </slicing>
+            <short value="Additional content defined by implementations"/>
+            <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+            <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+            <alias value="extensions"/>
+            <alias value="user content"/>
+            <min value="0"/>
+            <max value="*"/>
+            <base>
+                <path value="Element.extension"/>
+                <min value="0"/>
+                <max value="*"/>
+            </base>
+            <type>
+                <code value="Extension"/>
+            </type>
+            <isModifier value="false"/>
+            <isSummary value="false"/>
+            <mapping>
+                <identity value="rim"/>
+                <map value="n/a"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.requester.reference">
+            <path value="ServiceRequest.requester.reference"/>
+            <short value="保険指導実施者情報の参照"/>
+            <definition value="保険指導実施者情報の参照です。"/>
+            <comment value="Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a flexible approach suitable for use when trading across closed eco-system boundaries.   Absolute URLs do not need to point to a FHIR RESTful server, though this is the preferred approach. If the URL conforms to the structure &quot;/[type]/[id]&quot; then it should be assumed that the reference is to a FHIR RESTful server."/>
+            <min value="0"/>
+            <max value="1"/>
+            <base>
+                <path value="Reference.reference"/>
+                <min value="0"/>
+                <max value="1"/>
+            </base>
+            <type>
+                <code value="string"/>
+            </type>
+            <condition value="ref-1"/>
+            <mustSupport value="true"/>
+            <isModifier value="false"/>
+            <isSummary value="true"/>
+            <mapping>
+                <identity value="rim"/>
+                <map value="N/A"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.requester.type">
+            <path value="ServiceRequest.requester.type"/>
+            <short value="Type the reference refers to (e.g. &quot;Patient&quot;)"/>
+            <definition value="The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.  The type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. &quot;Patient&quot; is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."/>
+            <comment value="This element is used to indicate the type of  the target of the reference. This may be used which ever of the other elements are populated (or not). In some cases, the type of the target may be determined by inspection of the reference (e.g. a RESTful URL) or by resolving the target of the reference; if both the type and a reference is provided, the reference SHALL resolve to a resource of the same type as that specified."/>
+            <min value="0"/>
+            <max value="1"/>
+            <base>
+                <path value="Reference.type"/>
+                <min value="0"/>
+                <max value="1"/>
+            </base>
+            <type>
+                <code value="uri"/>
+            </type>
+            <isModifier value="false"/>
+            <isSummary value="true"/>
+            <binding>
+                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+                    <valueString value="FHIRResourceTypeExt"/>
+                </extension>
+                <strength value="extensible"/>
+                <description value="Aa resource (or, for logical models, the URI of the logical model)."/>
+                <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+            </binding>
+            <mapping>
+                <identity value="rim"/>
+                <map value="N/A"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.requester.identifier">
+            <path value="ServiceRequest.requester.identifier"/>
+            <short value="Logical reference, when literal reference is not known"/>
+            <definition value="An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."/>
+            <comment value="When an identifier is provided in place of a reference, any system processing the reference will only be able to resolve the identifier to a reference if it understands the business context in which the identifier is used. Sometimes this is global (e.g. a national identifier) but often it is not. For this reason, none of the useful mechanisms described for working with references (e.g. chaining, includes) are possible, nor should servers be expected to be able resolve the reference. Servers may accept an identifier based reference untouched, resolve it, and/or reject it - see CapabilityStatement.rest.resource.referencePolicy.   When both an identifier and a literal reference are provided, the literal reference is preferred. Applications processing the resource are allowed - but not required - to check that the identifier matches the literal reference  Applications converting a logical reference to a literal reference may choose to leave the logical reference present, or remove it.  Reference is intended to point to a structure that can potentially be expressed as a FHIR resource, though there is no need for it to exist as an actual FHIR resource instance - except in as much as an application wishes to actual find the target of the reference. The content referred to be the identifier must meet the logical constraints implied by any limitations on what resource types are permitted for the reference.  For example, it would not be legitimate to send the identifier for a drug prescription if the type were Reference(Observation|DiagnosticReport).  One of the use-cases for Reference.identifier is the situation where no FHIR representation exists (where the type is Reference (Any)."/>
+            <min value="0"/>
+            <max value="1"/>
+            <base>
+                <path value="Reference.identifier"/>
+                <min value="0"/>
+                <max value="1"/>
+            </base>
+            <type>
+                <code value="Identifier"/>
+            </type>
+            <isModifier value="false"/>
+            <isSummary value="true"/>
+            <mapping>
+                <identity value="rim"/>
+                <map value=".identifier"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.requester.display">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+                <valueBoolean value="true"/>
+            </extension>
+            <path value="ServiceRequest.requester.display"/>
+            <short value="Text alternative for the resource"/>
+            <definition value="Plain text narrative that identifies the resource in addition to the resource reference."/>
+            <comment value="This is generally not the same as the Resource.text of the referenced resource.  The purpose is to identify what's being referenced, not to fully describe it."/>
+            <min value="0"/>
+            <max value="1"/>
+            <base>
+                <path value="Reference.display"/>
+                <min value="0"/>
+                <max value="1"/>
+            </base>
+            <type>
+                <code value="string"/>
+            </type>
+            <isModifier value="false"/>
+            <isSummary value="true"/>
+            <mapping>
+                <identity value="rim"/>
+                <map value="N/A"/>
             </mapping>
         </element>
         <element id="ServiceRequest.performerType">
@@ -2867,8 +2228,8 @@
         </element>
         <element id="ServiceRequest.performer">
             <path value="ServiceRequest.performer"/>
-            <short value="実施機関の参照"/>
-            <definition value="実施機関の参照です。"/>
+            <short value="保険指導実施機関情報の参照"/>
+            <definition value="保険指導実施機関情報の参照です。"/>
             <comment value="If multiple performers are present, it is interpreted as a list of *alternative* performers without any preference regardless of order.  If order of preference is needed use the [request-performerOrder extension](extension-request-performerorder.html).  Use CareTeam to represent a group of performers (for example, Practitioner A *and* Practitioner B)."/>
             <alias value="request recipient"/>
             <min value="0"/>
@@ -3125,8 +2486,8 @@
         </element>
         <element id="ServiceRequest.reasonCode">
             <path value="ServiceRequest.reasonCode"/>
-            <short value="Explanation/Justification for procedure or service"/>
-            <definition value="An explanation or justification for why this service is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in `supportingInfo`."/>
+            <short value="保健指導に由来する健診結果コード"/>
+            <definition value="保健指導に由来する健診結果コードです。"/>
             <comment value="This element represents why the referral is being made and may be used to decide how the service will be performed, or even if it will be performed at all.   Use `CodeableConcept.text` element if the data is free (uncoded) text as shown in the [CT Scan example](servicerequest-example-di.html)."/>
             <min value="0"/>
             <max value="*"/>
@@ -3138,6 +2499,7 @@
             <type>
                 <code value="CodeableConcept"/>
             </type>
+            <mustSupport value="true"/>
             <isModifier value="false"/>
             <isSummary value="true"/>
             <binding>
@@ -3163,6 +2525,343 @@
             <mapping>
                 <identity value="rim"/>
                 <map value=".reasonCode"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.reasonCode.id">
+            <path value="ServiceRequest.reasonCode.id"/>
+            <representation value="xmlAttr"/>
+            <short value="Unique id for inter-element referencing"/>
+            <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
+            <min value="0"/>
+            <max value="1"/>
+            <base>
+                <path value="Element.id"/>
+                <min value="0"/>
+                <max value="1"/>
+            </base>
+            <type>
+                <code value="string"/>
+            </type>
+            <isModifier value="false"/>
+            <isSummary value="false"/>
+            <mapping>
+                <identity value="rim"/>
+                <map value="n/a"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.reasonCode.extension">
+            <path value="ServiceRequest.reasonCode.extension"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="url"/>
+                </discriminator>
+                <description value="Extensions are always sliced by (at least) url"/>
+                <rules value="open"/>
+            </slicing>
+            <short value="Additional content defined by implementations"/>
+            <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+            <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+            <alias value="extensions"/>
+            <alias value="user content"/>
+            <min value="0"/>
+            <max value="*"/>
+            <base>
+                <path value="Element.extension"/>
+                <min value="0"/>
+                <max value="*"/>
+            </base>
+            <type>
+                <code value="Extension"/>
+            </type>
+            <isModifier value="false"/>
+            <isSummary value="false"/>
+            <mapping>
+                <identity value="rim"/>
+                <map value="n/a"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.reasonCode.coding">
+            <path value="ServiceRequest.reasonCode.coding"/>
+            <short value="保健指導に由来する健診結果コード"/>
+            <definition value="保健指導に由来する健診結果コードです。"/>
+            <comment value="Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labeled as UserSelected = true."/>
+            <requirements value="Allows for alternative encodings within a code system, and translations to other code systems."/>
+            <min value="0"/>
+            <max value="*"/>
+            <base>
+                <path value="CodeableConcept.coding"/>
+                <min value="0"/>
+                <max value="*"/>
+            </base>
+            <type>
+                <code value="Coding"/>
+            </type>
+            <mustSupport value="true"/>
+            <isModifier value="false"/>
+            <isSummary value="true"/>
+            <mapping>
+                <identity value="v2"/>
+                <map value="C*E.1-8, C*E.10-22"/>
+            </mapping>
+            <mapping>
+                <identity value="rim"/>
+                <map value="union(., ./translation)"/>
+            </mapping>
+            <mapping>
+                <identity value="orim"/>
+                <map value="fhir:CodeableConcept.coding rdfs:subPropertyOf dt:CD.coding"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.reasonCode.coding.id">
+            <path value="ServiceRequest.reasonCode.coding.id"/>
+            <representation value="xmlAttr"/>
+            <short value="Unique id for inter-element referencing"/>
+            <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
+            <min value="0"/>
+            <max value="1"/>
+            <base>
+                <path value="Element.id"/>
+                <min value="0"/>
+                <max value="1"/>
+            </base>
+            <type>
+                <code value="string"/>
+            </type>
+            <isModifier value="false"/>
+            <isSummary value="false"/>
+            <mapping>
+                <identity value="rim"/>
+                <map value="n/a"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.reasonCode.coding.extension">
+            <path value="ServiceRequest.reasonCode.coding.extension"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="url"/>
+                </discriminator>
+                <description value="Extensions are always sliced by (at least) url"/>
+                <rules value="open"/>
+            </slicing>
+            <short value="Additional content defined by implementations"/>
+            <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+            <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+            <alias value="extensions"/>
+            <alias value="user content"/>
+            <min value="0"/>
+            <max value="*"/>
+            <base>
+                <path value="Element.extension"/>
+                <min value="0"/>
+                <max value="*"/>
+            </base>
+            <type>
+                <code value="Extension"/>
+            </type>
+            <isModifier value="false"/>
+            <isSummary value="false"/>
+            <mapping>
+                <identity value="rim"/>
+                <map value="n/a"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.reasonCode.coding.system">
+            <path value="ServiceRequest.reasonCode.coding.system"/>
+            <short value="保健指導に由来する健診結果コードのURI"/>
+            <definition value="保健指導に由来する健診結果コードのURIです。"/>
+            <comment value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should reference to some definition that establishes the system clearly and unambiguously."/>
+            <requirements value="Need to be unambiguous about the source of the definition of the symbol."/>
+            <min value="0"/>
+            <max value="1"/>
+            <base>
+                <path value="Coding.system"/>
+                <min value="0"/>
+                <max value="1"/>
+            </base>
+            <type>
+                <code value="uri"/>
+            </type>
+            <fixedUri value="http://jpfhir.jp/fhir/eCheckup/CodeSystem/JLAC10"/>
+            <mustSupport value="true"/>
+            <isModifier value="false"/>
+            <isSummary value="true"/>
+            <mapping>
+                <identity value="v2"/>
+                <map value="C*E.3"/>
+            </mapping>
+            <mapping>
+                <identity value="rim"/>
+                <map value="./codeSystem"/>
+            </mapping>
+            <mapping>
+                <identity value="orim"/>
+                <map value="fhir:Coding.system rdfs:subPropertyOf dt:CDCoding.codeSystem"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.reasonCode.coding.version">
+            <path value="ServiceRequest.reasonCode.coding.version"/>
+            <short value="Version of the system - if relevant"/>
+            <definition value="The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."/>
+            <comment value="Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use the date (expressed in FHIR date format) on which that version was officially published as the version date."/>
+            <min value="0"/>
+            <max value="1"/>
+            <base>
+                <path value="Coding.version"/>
+                <min value="0"/>
+                <max value="1"/>
+            </base>
+            <type>
+                <code value="string"/>
+            </type>
+            <isModifier value="false"/>
+            <isSummary value="true"/>
+            <mapping>
+                <identity value="v2"/>
+                <map value="C*E.7"/>
+            </mapping>
+            <mapping>
+                <identity value="rim"/>
+                <map value="./codeSystemVersion"/>
+            </mapping>
+            <mapping>
+                <identity value="orim"/>
+                <map value="fhir:Coding.version rdfs:subPropertyOf dt:CDCoding.codeSystemVersion"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.reasonCode.coding.code">
+            <path value="ServiceRequest.reasonCode.coding.code"/>
+            <short value="保健指導に由来する健診結果コード"/>
+            <definition value="保健指導に由来する健診結果コードです。"/>
+            <requirements value="Need to refer to a particular code in the system."/>
+            <min value="0"/>
+            <max value="1"/>
+            <base>
+                <path value="Coding.code"/>
+                <min value="0"/>
+                <max value="1"/>
+            </base>
+            <type>
+                <code value="code"/>
+            </type>
+            <mustSupport value="true"/>
+            <isModifier value="false"/>
+            <isSummary value="true"/>
+            <mapping>
+                <identity value="v2"/>
+                <map value="C*E.1"/>
+            </mapping>
+            <mapping>
+                <identity value="rim"/>
+                <map value="./code"/>
+            </mapping>
+            <mapping>
+                <identity value="orim"/>
+                <map value="fhir:Coding.code rdfs:subPropertyOf dt:CDCoding.code"/>
+            </mapping>
+            <mapping>
+                <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
+                <map value="XML No: 11.4.1 XPath: /ClinicalDocument/component/structuredBody/component/section/code/@code"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.reasonCode.coding.display">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+                <valueBoolean value="true"/>
+            </extension>
+            <path value="ServiceRequest.reasonCode.coding.display"/>
+            <short value="保健指導に由来する健診結果コードの名称"/>
+            <definition value="保健指導に由来する健診結果コードの名称です。"/>
+            <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system."/>
+            <min value="0"/>
+            <max value="1"/>
+            <base>
+                <path value="Coding.display"/>
+                <min value="0"/>
+                <max value="1"/>
+            </base>
+            <type>
+                <code value="string"/>
+            </type>
+            <mustSupport value="true"/>
+            <isModifier value="false"/>
+            <isSummary value="true"/>
+            <mapping>
+                <identity value="v2"/>
+                <map value="C*E.2 - but note this is not well followed"/>
+            </mapping>
+            <mapping>
+                <identity value="rim"/>
+                <map value="CV.displayName"/>
+            </mapping>
+            <mapping>
+                <identity value="orim"/>
+                <map value="fhir:Coding.display rdfs:subPropertyOf dt:CDCoding.displayName"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.reasonCode.coding.userSelected">
+            <path value="ServiceRequest.reasonCode.coding.userSelected"/>
+            <short value="If this coding was chosen directly by the user"/>
+            <definition value="Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays)."/>
+            <comment value="Amongst a set of alternatives, a directly chosen code is the most appropriate starting point for new translations. There is some ambiguity about what exactly 'directly chosen' implies, and trading partner agreement may be needed to clarify the use of this element and its consequences more completely."/>
+            <requirements value="This has been identified as a clinical safety criterium - that this exact system/code pair was chosen explicitly, rather than inferred by the system based on some rules or language processing."/>
+            <min value="0"/>
+            <max value="1"/>
+            <base>
+                <path value="Coding.userSelected"/>
+                <min value="0"/>
+                <max value="1"/>
+            </base>
+            <type>
+                <code value="boolean"/>
+            </type>
+            <isModifier value="false"/>
+            <isSummary value="true"/>
+            <mapping>
+                <identity value="v2"/>
+                <map value="Sometimes implied by being first"/>
+            </mapping>
+            <mapping>
+                <identity value="rim"/>
+                <map value="CD.codingRationale"/>
+            </mapping>
+            <mapping>
+                <identity value="orim"/>
+                <map value="fhir:Coding.userSelected fhir:mapsTo dt:CDCoding.codingRationale. fhir:Coding.userSelected fhir:hasMap fhir:Coding.userSelected.map. fhir:Coding.userSelected.map a fhir:Map;   fhir:target dt:CDCoding.codingRationale. fhir:Coding.userSelected\#true a [     fhir:source &quot;true&quot;;     fhir:target dt:CDCoding.codingRationale\#O   ]"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.reasonCode.text">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+                <valueBoolean value="true"/>
+            </extension>
+            <path value="ServiceRequest.reasonCode.text"/>
+            <short value="Plain text representation of the concept"/>
+            <definition value="A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."/>
+            <comment value="Very often the text is the same as a displayName of one of the codings."/>
+            <requirements value="The codes from the terminologies do not always capture the correct meaning with all the nuances of the human using them, or sometimes there is no appropriate code at all. In these cases, the text is used to capture the full meaning of the source."/>
+            <min value="0"/>
+            <max value="1"/>
+            <base>
+                <path value="CodeableConcept.text"/>
+                <min value="0"/>
+                <max value="1"/>
+            </base>
+            <type>
+                <code value="string"/>
+            </type>
+            <isModifier value="false"/>
+            <isSummary value="true"/>
+            <mapping>
+                <identity value="v2"/>
+                <map value="C*E.9. But note many systems use C*E.2 for this"/>
+            </mapping>
+            <mapping>
+                <identity value="rim"/>
+                <map value="./originalText[mediaType/code=&quot;text/plain&quot;]/data"/>
+            </mapping>
+            <mapping>
+                <identity value="orim"/>
+                <map value="fhir:CodeableConcept.text rdfs:subPropertyOf dt:CD.originalText"/>
             </mapping>
         </element>
         <element id="ServiceRequest.reasonReference">
@@ -3600,86 +3299,17 @@
             <comment value="例:&#xA;・特定保健指導機関番号&#xA;・保険者番号&#xA;・特定健診受診券整理番号&#xA;・利用券整理番号"/>
             <mustSupport value="true"/>
         </element>
-        <element id="ServiceRequest.identifier">
-            <path value="ServiceRequest.identifier"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="url"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="ServiceRequest.identifier:representedOrganization">
-            <path value="ServiceRequest.identifier"/>
-            <sliceName value="representedOrganization"/>
+        <element id="ServiceRequest.text.status">
+            <path value="ServiceRequest.text.status"/>
+            <definition value="このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。"/>
+            <fixedCode value="generated"/>
             <mustSupport value="true"/>
         </element>
-        <element id="ServiceRequest.identifier:representedOrganization.system">
-            <path value="ServiceRequest.identifier.system"/>
-            <short value="特定保健指導機関番号のOID"/>
-            <definition value="特定保健指導機関番号のOIDです。"/>
+        <element id="ServiceRequest.text.div">
+            <path value="ServiceRequest.text.div"/>
+            <short value="このリソースの概要"/>
+            <definition value="このリソースの概要です。"/>
             <mustSupport value="true"/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="https://igs.healthdataworks.net/jp-specific-health-checkups/ValueSet-ValueSet-JP-SPECIFIC-HEALTH-MedicalExaminationInstitutionNumber.html"/>
-            </binding>
-        </element>
-        <element id="ServiceRequest.identifier:representedOrganization.value">
-            <path value="ServiceRequest.identifier.value"/>
-            <short value="特定保健指導機関番号"/>
-            <definition value="特定保健指導機関番号です。"/>
-            <mustSupport value="true"/>
-            <mapping>
-                <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
-                <map value="XML No: 7.5.1 XPath: /ClinicalDocument/author/assignedAuthor/representedOrganization/id/@extension"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity1">
-            <path value="ServiceRequest.identifier"/>
-            <sliceName value="associatedEntity1"/>
-            <short value="特定健診受診券整理番号"/>
-            <definition value="特定健診受診券整理番号です。"/>
-            <mustSupport value="true"/>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity1.system">
-            <path value="ServiceRequest.identifier.system"/>
-            <short value="特定健診受診券整理番号のOID"/>
-            <definition value="特定健診受診券整理番号のOIDです。"/>
-            <mustSupport value="true"/>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity1.value">
-            <path value="ServiceRequest.identifier.value"/>
-            <short value="特定健診受診券整理番号"/>
-            <definition value="特定健診受診券整理番号です。"/>
-            <mustSupport value="true"/>
-            <mapping>
-                <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
-                <map value="XML No: 9.6.1 XPath: /ClinicalDocument/participant[functionCode/@code=&quot;1&quot;]/associatedEntity/id/@extension"/>
-            </mapping>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity2">
-            <path value="ServiceRequest.identifier"/>
-            <sliceName value="associatedEntity2"/>
-            <short value="利用券整理番号"/>
-            <definition value="利用券整理番号です。"/>
-            <mustSupport value="true"/>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity2.system">
-            <path value="ServiceRequest.identifier.system"/>
-            <short value="利用券整理番号のOID"/>
-            <definition value="利用券整理番号のOIDです。"/>
-            <mustSupport value="true"/>
-        </element>
-        <element id="ServiceRequest.identifier:associatedEntity2.value">
-            <path value="ServiceRequest.identifier.value"/>
-            <short value="利用券整理番号"/>
-            <definition value="利用券整理番号です。"/>
-            <mustSupport value="true"/>
-            <mapping>
-                <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
-                <map value="XML No: 9.6.1 XPath: /ClinicalDocument/participant[functionCode/@code=&quot;2&quot;]/associatedEntity/id/@extension"/>
-            </mapping>
         </element>
         <element id="ServiceRequest.status">
             <path value="ServiceRequest.status"/>
@@ -3697,74 +3327,82 @@
         </element>
         <element id="ServiceRequest.category">
             <path value="ServiceRequest.category"/>
-            <short value="保健指導実施時のプログラム種別"/>
-            <definition value="保健指導実施時のプログラム種別です。"/>
+            <short value="保険指導項⽬の区分"/>
+            <definition value="保険指導項⽬の区分です。"/>
             <mustSupport value="true"/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="https://igs.healthdataworks.net/jp-specific-health-checkups/ValueSet-ValueSet-JP-SPECIFIC-HEALTH-ProgramTypeCode.html"/>
-            </binding>
         </element>
         <element id="ServiceRequest.category.coding">
             <path value="ServiceRequest.category.coding"/>
-            <short value="保健指導実施時のプログラム種別"/>
-            <definition value="保健指導実施時のプログラム種別です。"/>
+            <short value="保険指導項⽬の区分"/>
+            <definition value="保険指導項⽬の区分です。"/>
             <mustSupport value="true"/>
         </element>
         <element id="ServiceRequest.category.coding.system">
             <path value="ServiceRequest.category.coding.system"/>
-            <short value="保健指導実施時のプログラム種別のOID"/>
-            <definition value="保健指導実施時のプログラム種別のOIDです。"/>
+            <short value="保険指導項⽬の区分のURI"/>
+            <definition value="保険指導項⽬の区分のURIです。"/>
+            <fixedUri value="http://hl7.org/fhir/ValueSet/servicerequest-category"/>
             <mustSupport value="true"/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="https://igs.healthdataworks.net/jp-specific-health-checkups/ValueSet-ValueSet-JP-SPECIFIC-HEALTH-ProgramTypeCode.html"/>
-            </binding>
         </element>
         <element id="ServiceRequest.category.coding.code">
             <path value="ServiceRequest.category.coding.code"/>
-            <short value="保健指導実施時のプログラム種別"/>
-            <definition value="保健指導実施時のプログラム種別です。"/>
+            <short value="保険指導項⽬の区分"/>
+            <definition value="保険指導項⽬の区分です。"/>
             <mustSupport value="true"/>
-            <mapping>
-                <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
-                <map value="XML No: 10.2.1 XPath: /ClinicalDocument/documentaionOf/serviceEvent/code/@code"/>
-            </mapping>
         </element>
         <element id="ServiceRequest.code">
             <path value="ServiceRequest.code"/>
-            <short value="報告区分"/>
-            <definition value="報告区分です。"/>
+            <short value="保健指導項目コード"/>
+            <definition value="保健指導項目コードです。"/>
             <mustSupport value="true"/>
             <binding>
-                <strength value="required"/>
-                <valueSet value="https://igs.healthdataworks.net/jp-specific-health-checkups/ValueSet-ValueSet-JP-SPECIFIC-HEALTH-ReportCategory.html"/>
+                <strength value="example"/>
+                <description value="Codes for tests or services that can be carried out by a designated individual, organization or healthcare service.  For laboratory, LOINC is  (preferred)[http://build.fhir.org/terminologies.html#preferred] and a valueset using LOINC Order codes is available valueset-diagnostic-requests.html."/>
+                <valueSet value="http://hl7.org/fhir/ValueSet/procedure-code"/>
             </binding>
         </element>
         <element id="ServiceRequest.code.coding">
             <path value="ServiceRequest.code.coding"/>
-            <short value="報告区分"/>
-            <definition value="報告区分です。"/>
+            <short value="保健指導項目コード"/>
+            <definition value="保健指導項目コードです。"/>
             <mustSupport value="true"/>
         </element>
         <element id="ServiceRequest.code.coding.system">
             <path value="ServiceRequest.code.coding.system"/>
-            <short value="報告区分のOID"/>
-            <definition value="報告区分のOIDです。"/>
+            <short value="保健指導項目コードのURI"/>
+            <definition value="保健指導項目コードのURIです。"/>
             <mustSupport value="true"/>
-            <binding>
-                <strength value="required"/>
-                <valueSet value="https://igs.healthdataworks.net/jp-specific-health-checkups/ValueSet-ValueSet-JP-SPECIFIC-HEALTH-ReportCategory.html"/>
-            </binding>
         </element>
         <element id="ServiceRequest.code.coding.code">
             <path value="ServiceRequest.code.coding.code"/>
-            <short value="報告区分"/>
-            <definition value="報告区分です。"/>
+            <short value="保健指導項目コード"/>
+            <definition value="保健指導項目コードです。"/>
             <mustSupport value="true"/>
             <mapping>
                 <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
-                <map value="XML No: 3.1 XPath: /ClinicalDocument/code/@code"/>
+                <map value="XML No: 11.12.1 XPath: /ClinicalDocument/component/structuredBody/component/section/entry/act/entryRelationship/observation/code/@code"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.code.coding.display">
+            <path value="ServiceRequest.code.coding.display"/>
+            <short value="保健指導項目コードの名称"/>
+            <definition value="保健指導項目コードです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ServiceRequest.quantity[x]">
+            <path value="ServiceRequest.quantity[x]"/>
+            <short value="保健指導項目値"/>
+            <definition value="保健指導項目値です。"/>
+            <mustSupport value="true"/>
+            <mapping>
+                <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
+                <map value="XML No: 11.13.2 XPath: /ClinicalDocument/component/structuredBody/component/section/entry/act/entryRelationship/observation/value/@value"/>
+                <comment value="valueの場合"/>
+            </mapping>
+            <mapping>
+                <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
+                <map value="XML No: 11.13.3 XPath: /ClinicalDocument/component/structuredBody/component/section/entry/act/entryRelationship/observation/value/@unit"/>
+                <comment value="unitの場合"/>
             </mapping>
         </element>
         <element id="ServiceRequest.subject">
@@ -3792,26 +3430,63 @@
                 <map value="XML No: 10.3.1 XPath: /ClinicalDocument/documentaionOf/serviceEvent/effectiveTime/@value"/>
             </mapping>
         </element>
-        <element id="ServiceRequest.authoredOn">
-            <path value="ServiceRequest.authoredOn"/>
-            <short value="保健指導ファイルの作成日"/>
-            <definition value="保健指導ファイルの作成日です。"/>
+        <element id="ServiceRequest.requester">
+            <path value="ServiceRequest.requester"/>
+            <short value="保険指導実施者情報の参照"/>
+            <definition value="保険指導実施者情報の参照です。"/>
             <mustSupport value="true"/>
-            <mapping>
-                <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
-                <map value="XML No: 4.1 XPath: /ClinicalDocument/effectiveTime/@value"/>
-            </mapping>
+        </element>
+        <element id="ServiceRequest.requester.reference">
+            <path value="ServiceRequest.requester.reference"/>
+            <short value="保険指導実施者情報の参照"/>
+            <definition value="保険指導実施者情報の参照です。"/>
+            <mustSupport value="true"/>
         </element>
         <element id="ServiceRequest.performer">
             <path value="ServiceRequest.performer"/>
-            <short value="実施機関の参照"/>
-            <definition value="実施機関の参照です。"/>
+            <short value="保険指導実施機関情報の参照"/>
+            <definition value="保険指導実施機関情報の参照です。"/>
             <mustSupport value="true"/>
         </element>
         <element id="ServiceRequest.performer.reference">
             <path value="ServiceRequest.performer.reference"/>
             <short value="実施機関の参照"/>
             <definition value="実施機関の参照です。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ServiceRequest.reasonCode">
+            <path value="ServiceRequest.reasonCode"/>
+            <short value="保健指導に由来する健診結果コード"/>
+            <definition value="保健指導に由来する健診結果コードです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ServiceRequest.reasonCode.coding">
+            <path value="ServiceRequest.reasonCode.coding"/>
+            <short value="保健指導に由来する健診結果コード"/>
+            <definition value="保健指導に由来する健診結果コードです。"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ServiceRequest.reasonCode.coding.system">
+            <path value="ServiceRequest.reasonCode.coding.system"/>
+            <short value="保健指導に由来する健診結果コードのURI"/>
+            <definition value="保健指導に由来する健診結果コードのURIです。"/>
+            <fixedUri value="http://jpfhir.jp/fhir/eCheckup/CodeSystem/JLAC10"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ServiceRequest.reasonCode.coding.code">
+            <path value="ServiceRequest.reasonCode.coding.code"/>
+            <short value="保健指導に由来する健診結果コード"/>
+            <definition value="保健指導に由来する健診結果コードです。"/>
+            <mustSupport value="true"/>
+            <mapping>
+                <identity value="JP-SPECIFIC-HEALTH-GUIDANCE-Mapping"/>
+                <map value="XML No: 11.4.1 XPath: /ClinicalDocument/component/structuredBody/component/section/code/@code"/>
+            </mapping>
+        </element>
+        <element id="ServiceRequest.reasonCode.coding.display">
+            <path value="ServiceRequest.reasonCode.coding.display"/>
+            <short value="保健指導に由来する健診結果コードの名称"/>
+            <definition value="保健指導に由来する健診結果コードの名称です。"/>
             <mustSupport value="true"/>
         </element>
         <element id="ServiceRequest.reasonReference">
