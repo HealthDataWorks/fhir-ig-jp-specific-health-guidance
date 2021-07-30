@@ -1,0 +1,330 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "JP-SPECIFIC-HEALTH-ServiceRequest",
+  "meta": {
+    "versionId": "28",
+    "lastUpdated": "2021-06-01T10:59:13.954+00:00",
+    "source": "#XjbKfEIUDfiex9mZ"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-category",
+      "valueString": "Clinical.Care Provision"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category",
+      "valueCode": "patient"
+    }
+  ],
+  "url": "https://igs.healthdataworks.net/jp-specific-health-guidance/StructureDefinition-JP-SPECIFIC-HEALTH-ServiceRequest.html",
+  "version": "0.8.0",
+  "name": "ServiceRequest",
+  "title": "特定保健指導情報",
+  "status": "draft",
+  "description": "特定保健指導情報です。\n診断内容、治療内容、またはそれらを指導する内容などの記録です。",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "quick",
+      "uri": "http://siframework.org/cqf",
+      "name": "Quality Improvement and Clinical Knowledge (QUICK)"
+    },
+    {
+      "identity": "JP-SPECIFIC-HEALTH-GUIDANCE-Mapping",
+      "name": "特定保健指導",
+      "uri": "https://www.mhlw.go.jp/content/12400000/000617344.pdf",
+      "comment": "特定保健指導の電子的なデータ標準様式の特定保健指導情報ファイル仕様説明書をFHIRにマッピングします。"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "ServiceRequest",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/ServiceRequest",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "ServiceRequest",
+        "path": "ServiceRequest",
+        "short": "特定保健指導情報",
+        "definition": "特定保健指導情報です。\n診断内容、治療内容、またはそれらを指導する内容などの記録です。"
+      },
+      {
+        "id": "ServiceRequest.id",
+        "path": "ServiceRequest.id",
+        "short": "このリソースのID",
+        "definition": "このリソースのIDです。",
+        "comment": "リソースIDは自動採番されます。",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.text",
+        "path": "ServiceRequest.text",
+        "short": "このリソースの概要",
+        "definition": "このリソースの概要です。",
+        "comment": "例:\n・特定保健指導機関番号\n・保険者番号\n・特定健診受診券整理番号\n・利用券整理番号",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.text.status",
+        "path": "ServiceRequest.text.status",
+        "definition": "このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。",
+        "fixedCode": "generated",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.text.div",
+        "path": "ServiceRequest.text.div",
+        "short": "このリソースの概要",
+        "definition": "このリソースの概要です。",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.status",
+        "path": "ServiceRequest.status",
+        "short": "特定保健指導の状態",
+        "definition": "特定保健指導の状態です。",
+        "comment": "特定保健指導では「active」固定とします。",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.intent",
+        "path": "ServiceRequest.intent",
+        "short": "特定保健指導の意図",
+        "definition": "特定保健指導の意図です。",
+        "comment": "特定保健指導では「order」固定とします。",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.category",
+        "path": "ServiceRequest.category",
+        "short": "保険指導項⽬の区分",
+        "definition": "保険指導項⽬の区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.category.coding",
+        "path": "ServiceRequest.category.coding",
+        "short": "保険指導項⽬の区分",
+        "definition": "保険指導項⽬の区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.category.coding.system",
+        "path": "ServiceRequest.category.coding.system",
+        "short": "保険指導項⽬の区分のURI",
+        "definition": "保険指導項⽬の区分のURIです。",
+        "fixedUri": "http://hl7.org/fhir/ValueSet/servicerequest-category",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.category.coding.code",
+        "path": "ServiceRequest.category.coding.code",
+        "short": "保険指導項⽬の区分",
+        "definition": "保険指導項⽬の区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.code",
+        "path": "ServiceRequest.code",
+        "short": "保健指導項目コード",
+        "definition": "保健指導項目コードです。",
+        "mustSupport": true,
+        "binding": {
+          "strength": "example",
+          "valueSet": "http://hl7.org/fhir/ValueSet/procedure-code",
+          "description": "Codes for tests or services that can be carried out by a designated individual, organization or healthcare service.  For laboratory, LOINC is  (preferred)[http://build.fhir.org/terminologies.html#preferred] and a valueset using LOINC Order codes is available valueset-diagnostic-requests.html."
+        }
+      },
+      {
+        "id": "ServiceRequest.code.coding",
+        "path": "ServiceRequest.code.coding",
+        "short": "保健指導項目コード",
+        "definition": "保健指導項目コードです。",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.code.coding.system",
+        "path": "ServiceRequest.code.coding.system",
+        "short": "保健指導項目コードのURI",
+        "definition": "保健指導項目コードのURIです。",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.code.coding.code",
+        "path": "ServiceRequest.code.coding.code",
+        "short": "保健指導項目コード",
+        "definition": "保健指導項目コードです。",
+        "mustSupport": true,
+        "mapping": [
+          {
+            "identity": "JP-SPECIFIC-HEALTH-GUIDANCE-Mapping",
+            "map": "XML No: 11.12.1 XPath: /ClinicalDocument/component/structuredBody/component/section/entry/act/entryRelationship/observation/code/@code"
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.code.coding.display",
+        "path": "ServiceRequest.code.coding.display",
+        "short": "保健指導項目コードの名称",
+        "definition": "保健指導項目コードです。",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.quantity[x]",
+        "path": "ServiceRequest.quantity[x]",
+        "short": "保健指導項目値",
+        "definition": "保健指導項目値です。",
+        "mustSupport": true,
+        "mapping": [
+          {
+            "identity": "JP-SPECIFIC-HEALTH-GUIDANCE-Mapping",
+            "map": "XML No: 11.13.2 XPath: /ClinicalDocument/component/structuredBody/component/section/entry/act/entryRelationship/observation/value/@value",
+            "comment": "valueの場合"
+          },
+          {
+            "identity": "JP-SPECIFIC-HEALTH-GUIDANCE-Mapping",
+            "map": "XML No: 11.13.3 XPath: /ClinicalDocument/component/structuredBody/component/section/entry/act/entryRelationship/observation/value/@unit",
+            "comment": "unitの場合"
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.subject",
+        "path": "ServiceRequest.subject",
+        "short": "特定保健指導の被検者の参照",
+        "definition": "特定保健指導の被検者の参照です。",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.subject.reference",
+        "path": "ServiceRequest.subject.reference",
+        "short": "特定保健指導の被検者の参照",
+        "definition": "特定保健指導の被検者の参照です。",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.occurrence[x]",
+        "path": "ServiceRequest.occurrence[x]",
+        "short": "保健指導実施年月日",
+        "definition": "保健指導実施年月日です。",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true,
+        "mapping": [
+          {
+            "identity": "JP-SPECIFIC-HEALTH-GUIDANCE-Mapping",
+            "map": "XML No: 10.3.1 XPath: /ClinicalDocument/documentaionOf/serviceEvent/effectiveTime/@value"
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.requester",
+        "path": "ServiceRequest.requester",
+        "short": "保険指導実施者情報の参照",
+        "definition": "保険指導実施者情報の参照です。",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.requester.reference",
+        "path": "ServiceRequest.requester.reference",
+        "short": "保険指導実施者情報の参照",
+        "definition": "保険指導実施者情報の参照です。",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.performer",
+        "path": "ServiceRequest.performer",
+        "short": "保険指導実施機関情報の参照",
+        "definition": "保険指導実施機関情報の参照です。",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.performer.reference",
+        "path": "ServiceRequest.performer.reference",
+        "short": "実施機関の参照",
+        "definition": "実施機関の参照です。",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.reasonCode",
+        "path": "ServiceRequest.reasonCode",
+        "short": "保健指導に由来する健診結果コード",
+        "definition": "保健指導に由来する健診結果コードです。",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.reasonCode.coding",
+        "path": "ServiceRequest.reasonCode.coding",
+        "short": "保健指導に由来する健診結果コード",
+        "definition": "保健指導に由来する健診結果コードです。",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.reasonCode.coding.system",
+        "path": "ServiceRequest.reasonCode.coding.system",
+        "short": "保健指導に由来する健診結果コードのURI",
+        "definition": "保健指導に由来する健診結果コードのURIです。",
+        "fixedUri": "http://jpfhir.jp/fhir/eCheckup/CodeSystem/JLAC10",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.reasonCode.coding.code",
+        "path": "ServiceRequest.reasonCode.coding.code",
+        "short": "保健指導に由来する健診結果コード",
+        "definition": "保健指導に由来する健診結果コードです。",
+        "mustSupport": true,
+        "mapping": [
+          {
+            "identity": "JP-SPECIFIC-HEALTH-GUIDANCE-Mapping",
+            "map": "XML No: 11.4.1 XPath: /ClinicalDocument/component/structuredBody/component/section/code/@code"
+          }
+        ]
+      },
+      {
+        "id": "ServiceRequest.reasonCode.coding.display",
+        "path": "ServiceRequest.reasonCode.coding.display",
+        "short": "保健指導に由来する健診結果コードの名称",
+        "definition": "保健指導に由来する健診結果コードの名称です。",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.reasonReference",
+        "path": "ServiceRequest.reasonReference",
+        "short": "保健指導結果情報の参照",
+        "definition": "保健指導結果情報の参照です。",
+        "mustSupport": true
+      },
+      {
+        "id": "ServiceRequest.reasonReference.reference",
+        "path": "ServiceRequest.reasonReference.reference",
+        "short": "保健指導結果情報の参照",
+        "definition": "保健指導結果情報の参照です。",
+        "mustSupport": true
+      }
+    ]
+  }
+}

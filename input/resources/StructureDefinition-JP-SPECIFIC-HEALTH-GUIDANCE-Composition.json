@@ -1,0 +1,1238 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "JP-SPECIFIC-HEALTH-GUIDANCE-Composition",
+  "meta": {
+    "versionId": "2",
+    "lastUpdated": "2021-06-02T06:49:35.695+00:00",
+    "source": "#oYPnCg6Yz84zF3dt"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-category",
+      "valueString": "Foundation.Documents"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category",
+      "valueCode": "not-classified"
+    }
+  ],
+  "url": "https://igs.healthdataworks.net/specific-health-checkups/StructureDefinition-JP-SPECIFIC-HEALTH-GUIDANCE-Composition.html",
+  "version": "0.8.0",
+  "name": "Composition",
+  "title": "保健指導結果の文書構成情報",
+  "status": "draft",
+  "description": "保健指導結果の文書構成情報です。",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "cda",
+      "uri": "http://hl7.org/v3/cda",
+      "name": "CDA (R2)"
+    },
+    {
+      "identity": "fhirdocumentreference",
+      "uri": "http://hl7.org/fhir/documentreference",
+      "name": "FHIR DocumentReference"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "JP-SPECIFIC-HEALTH-GUIDANCE-Mapping",
+      "name": "特定保健指導",
+      "uri": "https://www.mhlw.go.jp/content/12400000/000617344.pdf",
+      "comment": "特定保健指導の電子的なデータ標準様式の特定保健指導情報ファイル仕様説明書をFHIRにマッピングします。"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Composition",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Composition",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Composition",
+        "path": "Composition",
+        "short": "保健指導結果の文書構成情報",
+        "definition": "保健指導結果の文書構成情報です。"
+      },
+      {
+        "id": "Composition.id",
+        "path": "Composition.id",
+        "short": "このリソースのID",
+        "definition": "このリソースのIDです。",
+        "comment": "リソースIDは自動採番されます。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.language",
+        "path": "Composition.language",
+        "short": "文書の言語",
+        "definition": "文書の言語です。",
+        "fixedCode": "ja",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.text",
+        "path": "Composition.text",
+        "short": "このリソースの概要",
+        "definition": "このリソースの概要です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.text.status",
+        "path": "Composition.text.status",
+        "definition": "このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。",
+        "fixedCode": "generated",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.text.div",
+        "path": "Composition.text.div",
+        "short": "このリソースの概要",
+        "definition": "このリソースの概要です。"
+      },
+      {
+        "id": "Composition.extension",
+        "path": "Composition.extension",
+        "short": "保健指導結果報告書の⽂書バージョンを表す拡張",
+        "definition": "保健指導結果報告書の⽂書バージョンを表す拡張です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.extension.extension",
+        "path": "Composition.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Composition.extension.url",
+        "path": "Composition.extension.url",
+        "short": "保健指導結果報告書の⽂書バージョンを表す拡張のURI",
+        "definition": "保健指導結果報告書の⽂書バージョンを表す拡張のURIです。",
+        "fixedUri": "http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-versionNumber",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.extension.value[x]",
+        "path": "Composition.extension.value[x]",
+        "short": "⽂書のバージョン番号",
+        "definition": "⽂書のバージョン番号です。",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.identifier",
+        "path": "Composition.identifier",
+        "short": "保健指導結果報告書ID",
+        "definition": "保健指導結果報告書IDです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.identifier.system",
+        "path": "Composition.identifier.system",
+        "short": "保健指導結果報告書IDの名前空間を表すURI",
+        "definition": "保健指導結果報告書IDの名前空間を表すURIです。",
+        "fixedUri": "http://jpfhir.jp/fhir/eGuidance/documentIdentifier",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.identifier.value",
+        "path": "Composition.identifier.value",
+        "short": "保健指導結果報告書ID",
+        "definition": "保健指導結果報告書IDです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.status",
+        "path": "Composition.status",
+        "short": "このリソースの状態",
+        "definition": "このリソースの状態です。",
+        "fixedCode": "final",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.type",
+        "path": "Composition.type",
+        "short": "文書区分",
+        "definition": "文書区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.type.coding",
+        "path": "Composition.type.coding",
+        "short": "文書区分",
+        "definition": "文書区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.type.coding.system",
+        "path": "Composition.type.coding.system",
+        "short": "文書区分のURI",
+        "definition": "文書区分のURIです。",
+        "fixedUri": "http://jpfhir.jp/fhir/eGuidance/CodeSystem/documentType",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.type.coding.code",
+        "path": "Composition.type.coding.code",
+        "short": "⽂書区分コード",
+        "definition": "⽂書区分コードです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.type.coding.display",
+        "path": "Composition.type.coding.display",
+        "short": "⽂書区分コードの名称",
+        "definition": "⽂書区分コードの名称です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.category",
+        "path": "Composition.category",
+        "short": "報告区分",
+        "definition": "報告区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.category.coding",
+        "path": "Composition.category.coding",
+        "short": "報告区分",
+        "definition": "報告区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.category.coding.system",
+        "path": "Composition.category.coding.system",
+        "short": "報告区分のURI",
+        "definition": "報告区分のURIです。",
+        "fixedUri": "urn:oid:1.2.392.200119.6.1001",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.category.coding.code",
+        "path": "Composition.category.coding.code",
+        "short": "報告区分コード",
+        "definition": "報告区分コードです。",
+        "comment": "特定保健指導は「21」を定義する。",
+        "fixedCode": "21",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.category.coding.display",
+        "path": "Composition.category.coding.display",
+        "short": "報告区分コード",
+        "definition": "報告区分コードです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.subject",
+        "path": "Composition.subject",
+        "short": "受診者情報の参照",
+        "definition": "受診者情報の参照です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.subject.reference",
+        "path": "Composition.subject.reference",
+        "short": "受診者情報の参照",
+        "definition": "受診者情報の参照です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.encounter",
+        "path": "Composition.encounter",
+        "short": "保健指導実施情報の参照",
+        "definition": "保健指導実施情報の参照です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.encounter.reference",
+        "path": "Composition.encounter.reference",
+        "short": "保健指導実施情報の参照",
+        "definition": "保健指導実施情報の参照です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.date",
+        "path": "Composition.date",
+        "short": "保健指導結果報告書の作成日時",
+        "definition": "保健指導結果報告書の作成日時です。",
+        "mustSupport": true,
+        "mapping": [
+          {
+            "identity": "JP-SPECIFIC-HEALTH-GUIDANCE-Mapping",
+            "map": "XML No: 4.1 XPath: /ClinicalDocument/effectiveTime/@value"
+          }
+        ]
+      },
+      {
+        "id": "Composition.author",
+        "path": "Composition.author",
+        "short": "保健指導結果作成者役割情報の参照",
+        "definition": "保健指導結果作成者役割情報の参照です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.author.reference",
+        "path": "Composition.author.reference",
+        "short": "保健指導結果作成者役割情報の参照",
+        "definition": "保健指導結果作成者役割情報の参照です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.title",
+        "path": "Composition.title",
+        "short": "この文書(リソース)のタイトル",
+        "definition": "この文書(リソース)のタイトルです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.confidentiality",
+        "path": "Composition.confidentiality",
+        "short": "本個⼈提供⽤保健指導結果報告書アクセス基準",
+        "definition": "本個⼈提供⽤保健指導結果報告書アクセス基準の「N」(Normal)を定義する。",
+        "fixedCode": "N",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.custodian",
+        "path": "Composition.custodian",
+        "short": "保健指導結果作成組織情報の参照",
+        "definition": "保健指導結果作成組織情報の参照です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.custodian.reference",
+        "path": "Composition.custodian.reference",
+        "short": "保健指導結果作成組織情報の参照",
+        "definition": "保健指導結果作成組織情報の参照です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.event",
+        "path": "Composition.event",
+        "short": "保健指導実施情報",
+        "definition": "保健指導実施情報です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.event.code",
+        "path": "Composition.event.code",
+        "short": "保健指導プログラムサービスコード",
+        "definition": "保健指導プログラムサービスコードです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.event.code.coding",
+        "path": "Composition.event.code.coding",
+        "short": "保健指導プログラムサービスコード",
+        "definition": "保健指導プログラムサービスコードです。"
+      },
+      {
+        "id": "Composition.event.code.coding.system",
+        "path": "Composition.event.code.coding.system",
+        "short": "保健指導プログラムサービスコードのURI",
+        "definition": "保健指導プログラムサービスコードのURIです。",
+        "fixedUri": "urn:oid:2.16.840.1.113883.2.2.1.6.1002",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.event.code.coding.code",
+        "path": "Composition.event.code.coding.code",
+        "short": "保健指導プログラムサービスコード",
+        "definition": "保健指導プログラムサービスコードです。",
+        "comment": "「特定保健指導」を示す「100」を定義する。",
+        "fixedCode": "100",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.event.code.coding.display",
+        "path": "Composition.event.code.coding.display",
+        "short": "保健指導プログラムサービスコードの名称",
+        "definition": "保健指導プログラムサービスコードの名称です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.event.period",
+        "path": "Composition.event.period",
+        "short": "保健指導実施⽇",
+        "definition": "保健指導実施⽇です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.event.period.start",
+        "path": "Composition.event.period.start",
+        "short": "保健指導実施⽇",
+        "definition": "保健指導実施⽇です。",
+        "mustSupport": true,
+        "mapping": [
+          {
+            "identity": "JP-SPECIFIC-HEALTH-GUIDANCE-Mapping",
+            "map": "XML No: 10.3.1 XPath: /ClinicalDocument/documentationOf/serviceEvent/effectiveTime/@value"
+          }
+        ]
+      },
+      {
+        "id": "Composition.event.period.end",
+        "path": "Composition.event.period.end",
+        "short": "保健指導実施⽇",
+        "definition": "保健指導実施⽇です。",
+        "comment": "保健指導が1日で終わる場合は「start」と同じ日付を定義する。",
+        "mustSupport": true,
+        "mapping": [
+          {
+            "identity": "JP-SPECIFIC-HEALTH-GUIDANCE-Mapping",
+            "map": "XML No: 10.3.1 XPath: /ClinicalDocument/documentationOf/serviceEvent/effectiveTime/@value"
+          }
+        ]
+      },
+      {
+        "id": "Composition.event.detail",
+        "path": "Composition.event.detail",
+        "short": "保健指導実施情報の参照",
+        "definition": "保健指導実施情報の参照です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.event.detail.reference",
+        "path": "Composition.event.detail.reference",
+        "short": "保健指導実施情報の参照",
+        "definition": "保健指導実施情報の参照です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section",
+        "path": "Composition.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code"
+            }
+          ],
+          "rules": "open"
+        },
+        "mustSupport": false
+      },
+      {
+        "id": "Composition.section:90010",
+        "path": "Composition.section",
+        "sliceName": "90010",
+        "short": "指導共通情報セクション",
+        "definition": "指導共通情報セクションです。",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90010.title",
+        "path": "Composition.section.title",
+        "short": "セクションのタイトル",
+        "definition": "セクションのタイトルです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90010.code",
+        "path": "Composition.section.code",
+        "short": "セクション区分",
+        "definition": "セクション区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90010.code.coding",
+        "path": "Composition.section.code.coding",
+        "short": "セクション区分",
+        "definition": "セクション区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90010.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "short": "セクション区分コードのURI",
+        "definition": "セクション区分コードのURI",
+        "fixedUri": "urn:oid:1.2.392.200119.6.1010",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90010.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "short": "セクション区分コード",
+        "definition": "セクション区分コードです。",
+        "comment": "指導共通情報セクションを示す「90010」を定義する。",
+        "fixedCode": "90010",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90010.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "short": "セクション区分コードの名称",
+        "definition": "セクション区分コードの名称です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90010.text",
+        "path": "Composition.section.text",
+        "short": "セクションの内容を示すテキスト",
+        "definition": "セクションの内容を示すテキストです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90010.text.status",
+        "path": "Composition.section.text.status",
+        "definition": "このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。",
+        "fixedCode": "generated",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90010.text.div",
+        "path": "Composition.section.text.div",
+        "short": "このリソースの概要",
+        "definition": "このリソースの概要です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90010.entry",
+        "path": "Composition.section.entry",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "reference"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Composition.section:90020",
+        "path": "Composition.section",
+        "sliceName": "90020",
+        "short": "指導初回①情報セクション",
+        "definition": "指導初回①情報セクションです。",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90020.title",
+        "path": "Composition.section.title",
+        "short": "セクションのタイトル",
+        "definition": "セクションのタイトルです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90020.code",
+        "path": "Composition.section.code",
+        "short": "セクション区分",
+        "definition": "セクション区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90020.code.coding",
+        "path": "Composition.section.code.coding",
+        "short": "セクション区分",
+        "definition": "セクション区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90020.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "short": "セクション区分コードのURI",
+        "definition": "セクション区分コードのURI",
+        "fixedUri": "urn:oid:1.2.392.200119.6.1010",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90020.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "short": "セクション区分コード",
+        "definition": "セクション区分コードです。",
+        "comment": "指導初回①情報セクションを示す「90020」を定義する。",
+        "fixedCode": "90020",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90020.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "short": "セクション区分コードの名称",
+        "definition": "セクション区分コードの名称です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90020.text",
+        "path": "Composition.section.text",
+        "short": "セクションの内容を示すテキスト",
+        "definition": "セクションの内容を示すテキストです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90020.text.status",
+        "path": "Composition.section.text.status",
+        "definition": "このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。",
+        "fixedCode": "generated",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90020.text.div",
+        "path": "Composition.section.text.div",
+        "short": "このリソースの概要",
+        "definition": "このリソースの概要です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90020.entry",
+        "path": "Composition.section.entry",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "reference"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Composition.section:90030",
+        "path": "Composition.section",
+        "sliceName": "90030",
+        "short": "指導初回情報セクション",
+        "definition": "指導初回情報セクションです。",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90030.title",
+        "path": "Composition.section.title",
+        "short": "セクションのタイトル",
+        "definition": "セクションのタイトルです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90030.code",
+        "path": "Composition.section.code",
+        "short": "セクション区分",
+        "definition": "セクション区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90030.code.coding",
+        "path": "Composition.section.code.coding",
+        "short": "セクション区分",
+        "definition": "セクション区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90030.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "short": "セクション区分コードのURI",
+        "definition": "セクション区分コードのURI",
+        "fixedUri": "urn:oid:1.2.392.200119.6.1010",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90030.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "short": "セクション区分コード",
+        "definition": "セクション区分コードです。",
+        "comment": "指導初回情報セクションを示す「90030」を定義する。",
+        "fixedCode": "90030",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90030.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "short": "セクション区分コードの名称",
+        "definition": "セクション区分コードの名称です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90030.text",
+        "path": "Composition.section.text",
+        "short": "セクションの内容を示すテキスト",
+        "definition": "セクションの内容を示すテキストです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90030.text.status",
+        "path": "Composition.section.text.status",
+        "definition": "このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。",
+        "fixedCode": "generated",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90030.text.div",
+        "path": "Composition.section.text.div",
+        "short": "このリソースの概要",
+        "definition": "このリソースの概要です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90030.entry",
+        "path": "Composition.section.entry",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "reference"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Composition.section:90040",
+        "path": "Composition.section",
+        "sliceName": "90040",
+        "short": "継続支援情報セクション",
+        "definition": "継続支援情報セクションです。",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90040.title",
+        "path": "Composition.section.title",
+        "short": "セクションのタイトル",
+        "definition": "セクションのタイトルです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90040.code",
+        "path": "Composition.section.code",
+        "short": "セクション区分",
+        "definition": "セクション区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90040.code.coding",
+        "path": "Composition.section.code.coding",
+        "short": "セクション区分",
+        "definition": "セクション区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90040.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "short": "セクション区分コードのURI",
+        "definition": "セクション区分コードのURI",
+        "fixedUri": "urn:oid:1.2.392.200119.6.1010",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90040.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "short": "セクション区分コード",
+        "definition": "セクション区分コードです。",
+        "comment": "継続支援情報セクションを示す「90040」を定義する。",
+        "fixedCode": "90040",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90040.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "short": "セクション区分コードの名称",
+        "definition": "セクション区分コードの名称です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90040.text",
+        "path": "Composition.section.text",
+        "short": "セクションの内容を示すテキスト",
+        "definition": "セクションの内容を示すテキストです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90040.text.status",
+        "path": "Composition.section.text.status",
+        "definition": "このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。",
+        "fixedCode": "generated",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90040.text.div",
+        "path": "Composition.section.text.div",
+        "short": "このリソースの概要",
+        "definition": "このリソースの概要です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90040.entry",
+        "path": "Composition.section.entry",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "reference"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Composition.section:90050",
+        "path": "Composition.section",
+        "sliceName": "90050",
+        "short": "中間評価情報セクション",
+        "definition": "中間評価情報セクションです。",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90050.title",
+        "path": "Composition.section.title",
+        "short": "セクションのタイトル",
+        "definition": "セクションのタイトルです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90050.code",
+        "path": "Composition.section.code",
+        "short": "セクション区分",
+        "definition": "セクション区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90050.code.coding",
+        "path": "Composition.section.code.coding",
+        "short": "セクション区分",
+        "definition": "セクション区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90050.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "short": "セクション区分コードのURI",
+        "definition": "セクション区分コードのURI",
+        "fixedUri": "urn:oid:1.2.392.200119.6.1010",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90050.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "short": "セクション区分コード",
+        "definition": "セクション区分コードです。",
+        "comment": "中間評価情報セクションを示す「90050」を定義する。",
+        "fixedCode": "90050",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90050.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "short": "セクション区分コードの名称",
+        "definition": "セクション区分コードの名称です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90050.text",
+        "path": "Composition.section.text",
+        "short": "セクションの内容を示すテキスト",
+        "definition": "セクションの内容を示すテキストです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90050.text.status",
+        "path": "Composition.section.text.status",
+        "definition": "このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。",
+        "fixedCode": "generated",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90050.text.div",
+        "path": "Composition.section.text.div",
+        "short": "このリソースの概要",
+        "definition": "このリソースの概要です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90050.entry",
+        "path": "Composition.section.entry",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "reference"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Composition.section:90060",
+        "path": "Composition.section",
+        "sliceName": "90060",
+        "short": "最終評価情報セクション",
+        "definition": "最終評価情報セクションです。",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90060.title",
+        "path": "Composition.section.title",
+        "short": "セクションのタイトル",
+        "definition": "セクションのタイトルです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90060.code",
+        "path": "Composition.section.code",
+        "short": "セクション区分",
+        "definition": "セクション区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90060.code.coding",
+        "path": "Composition.section.code.coding",
+        "short": "セクション区分",
+        "definition": "セクション区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90060.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "short": "セクション区分コードのURI",
+        "definition": "セクション区分コードのURI",
+        "fixedUri": "urn:oid:1.2.392.200119.6.1010",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90060.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "short": "セクション区分コード",
+        "definition": "セクション区分コードです。",
+        "comment": "最終評価情報セクションを示す「90060」を定義する。",
+        "fixedCode": "90060",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90060.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "short": "セクション区分コードの名称",
+        "definition": "セクション区分コードの名称です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90060.text",
+        "path": "Composition.section.text",
+        "short": "セクションの内容を示すテキスト",
+        "definition": "セクションの内容を示すテキストです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90060.text.status",
+        "path": "Composition.section.text.status",
+        "definition": "このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。",
+        "fixedCode": "generated",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90060.text.div",
+        "path": "Composition.section.text.div",
+        "short": "このリソースの概要",
+        "definition": "このリソースの概要です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90060.entry",
+        "path": "Composition.section.entry",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "reference"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Composition.section:90070",
+        "path": "Composition.section",
+        "sliceName": "90070",
+        "short": "指導集計情報セクション",
+        "definition": "指導集計情報セクションです。",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90070.title",
+        "path": "Composition.section.title",
+        "short": "セクションのタイトル",
+        "definition": "セクションのタイトルです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90070.code",
+        "path": "Composition.section.code",
+        "short": "セクション区分",
+        "definition": "セクション区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90070.code.coding",
+        "path": "Composition.section.code.coding",
+        "short": "セクション区分",
+        "definition": "セクション区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90070.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "short": "セクション区分コードのURI",
+        "definition": "セクション区分コードのURI",
+        "fixedUri": "urn:oid:1.2.392.200119.6.1010",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90070.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "short": "セクション区分コード",
+        "definition": "セクション区分コードです。",
+        "comment": "指導集計情報セクションを示す「90070」を定義する。",
+        "fixedCode": "90070",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90070.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "short": "セクション区分コードの名称",
+        "definition": "セクション区分コードの名称です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90070.text",
+        "path": "Composition.section.text",
+        "short": "セクションの内容を示すテキスト",
+        "definition": "セクションの内容を示すテキストです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90070.text.status",
+        "path": "Composition.section.text.status",
+        "definition": "このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。",
+        "fixedCode": "generated",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90070.text.div",
+        "path": "Composition.section.text.div",
+        "short": "このリソースの概要",
+        "definition": "このリソースの概要です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90070.entry",
+        "path": "Composition.section.entry",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "reference"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Composition.section:90080",
+        "path": "Composition.section",
+        "sliceName": "90080",
+        "short": "指導機関情報セクション",
+        "definition": "指導機関情報セクションです。",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90080.title",
+        "path": "Composition.section.title",
+        "short": "セクションのタイトル",
+        "definition": "セクションのタイトルです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90080.code",
+        "path": "Composition.section.code",
+        "short": "セクション区分",
+        "definition": "セクション区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90080.code.coding",
+        "path": "Composition.section.code.coding",
+        "short": "セクション区分",
+        "definition": "セクション区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90080.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "short": "セクション区分コードのURI",
+        "definition": "セクション区分コードのURI",
+        "fixedUri": "urn:oid:1.2.392.200119.6.1010",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90080.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "short": "セクション区分コード",
+        "definition": "セクション区分コードです。",
+        "comment": "指導機関情報セクションを示す「90080」を定義する。",
+        "fixedCode": "90080",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90080.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "short": "セクション区分コードの名称",
+        "definition": "セクション区分コードの名称です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90080.text",
+        "path": "Composition.section.text",
+        "short": "セクションの内容を示すテキスト",
+        "definition": "セクションの内容を示すテキストです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90080.text.status",
+        "path": "Composition.section.text.status",
+        "definition": "このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。",
+        "fixedCode": "generated",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90080.text.div",
+        "path": "Composition.section.text.div",
+        "short": "このリソースの概要",
+        "definition": "このリソースの概要です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:90080.entry",
+        "path": "Composition.section.entry",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "reference"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Composition.section:Document",
+        "path": "Composition.section",
+        "sliceName": "Document",
+        "short": "添付書類セクション",
+        "definition": "添付書類セクションです。",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:Document.title",
+        "path": "Composition.section.title",
+        "short": "セクションのタイトル",
+        "definition": "セクションのタイトルです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:Document.code",
+        "path": "Composition.section.code",
+        "short": "セクション区分",
+        "definition": "セクション区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:Document.code.coding",
+        "path": "Composition.section.code.coding",
+        "short": "セクション区分",
+        "definition": "セクション区分です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:Document.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "short": "セクション区分コードのURI",
+        "definition": "セクション区分コードのURIです。",
+        "fixedUri": "urn:oid:1.2.392.200119.6.1002",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:Document.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "short": "セクション区分コード",
+        "definition": "セクション区分コードです。",
+        "comment": "添付書類セクションを示す「01995」を定義する。",
+        "fixedCode": "01995",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:Document.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "short": "セクション区分コードの名称",
+        "definition": "セクション区分コードの名称です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:Document.text",
+        "path": "Composition.section.text",
+        "short": "セクションの内容を示すテキスト",
+        "definition": "セクションの内容を示すテキストです。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:Document.text.status",
+        "path": "Composition.section.text.status",
+        "definition": "このリソースの概要がリソースのコンテンツから⽣成されたことを⽰す。",
+        "fixedCode": "generated",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:Document.text.div",
+        "path": "Composition.section.text.div",
+        "short": "このリソースの概要",
+        "definition": "このリソースの概要です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:Document.entry",
+        "path": "Composition.section.entry",
+        "short": "添付書類の参照",
+        "definition": "添付書類の参照です。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:Document.entry.reference",
+        "path": "Composition.section.entry.reference",
+        "short": "添付書類の参照",
+        "definition": "添付書類の参照です。",
+        "mustSupport": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "resourceType": "CapabilityStatement",
+  "id": "specific-service-request-server",
+  "meta": {
+    "versionId": "7",
+    "lastUpdated": "2021-05-11T08:18:34.769+00:00",
+    "source": "#PeRw6lvL7RQZQebd"
+  },
+  "url": "https://igs.healthdataworks.net/jp-specific-health-guidance/capability-statement/specific-service-request-server",
+  "version": "0.0.1",
+  "name": "SpecificServiceRequestServer",
+  "title": "Specific Service Request Server",
+  "status": "draft",
+  "experimental": false,
+  "date": "2021-02-01",
+  "description": "特定保健指導情報サーバ機能の機能ステートメントです。  \n使用できるリソース(Resource Type)と使用できる操作(Read\tSearch:検索参照,\tUpdate:更新,\tCreate:作成,\tDelete:削除)の関係を示します。  \n表で\"y\"となっている操作が使用できます。空欄となっている操作は使用できません。",
+  "kind": "requirements",
+  "fhirVersion": "4.0.1",
+  "format": [
+    "json",
+    "xml"
+  ],
+  "rest": [
+    {
+      "mode": "server",
+      "documentation": "特定保健指導情報のエンドポイントです。",
+      "resource": [
+        {
+          "type": "Patient",
+          "profile": "https://igs.healthdataworks.net/jp-specific-health-guidance/StructureDefinition-JP-REZEPT-Patient.html",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "delete"
+            },
+            {
+              "code": "search-type"
+            }
+          ]
+        },
+        {
+          "type": "Organization",
+          "profile": "https://igs.healthdataworks.net/jp-specific-health-guidance/StructureDefinition-JP-REZEPT-Organization.html",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "delete"
+            },
+            {
+              "code": "search-type"
+            }
+          ]
+        },
+        {
+          "type": "Observation",
+          "profile": "https://igs.healthdataworks.net/jp-specific-health-guidance/StructureDefinition-JP-SPECIFIC-HEALTH-Observation.html",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "delete"
+            },
+            {
+              "code": "search-type"
+            }
+          ]
+        },
+        {
+          "type": "QuestionnaireResponse",
+          "profile": "https://igs.healthdataworks.net/jp-specific-health-guidance/StructureDefinition-JP-SPECIFIC-HEALTH-QuestionnaireResponse.html",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "delete"
+            },
+            {
+              "code": "search-type"
+            }
+          ]
+        },
+        {
+          "type": "ServiceRequest",
+          "profile": "https://igs.healthdataworks.net/jp-specific-health-guidance/StructureDefinition-JP-SPECIFIC-HEALTH-ServiceRequest.html",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "delete"
+            },
+            {
+              "code": "search-type"
+            }
+          ]
+        }
+      ],
+      "interaction": [
+        {
+          "code": "search-system"
+        }
+      ]
+    }
+  ]
+}
